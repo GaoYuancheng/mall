@@ -1,0 +1,3 @@
+com\mall\common\api\CommonResult.class
+com\mall\common\api\ResultCode.class
+com\mall\common\api\IErrorCode.class
