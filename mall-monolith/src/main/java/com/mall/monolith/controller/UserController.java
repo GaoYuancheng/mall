@@ -7,6 +7,7 @@ import com.mall.monolith.dto.UserListRequest;
 import com.mall.monolith.dto.UserLoginRequest;
 import com.mall.monolith.dto.UserRegisterRequest;
 import com.mall.monolith.dto.UserUpdateRequest;
+import com.mall.monolith.dto.UserUpdateStatusRequest;
 import com.mall.monolith.exception.UserException;
 import com.mall.monolith.model.User;
 import com.mall.monolith.service.UserService;
@@ -18,6 +19,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.util.Assert;
 
 @Tag(name = "用户管理", description = "用户管理接口")
 @RestController
@@ -151,6 +153,23 @@ public class UserController {
             return CommonResult.success(result);
         } catch (Exception e) {
             return CommonResult.failed("获取用户列表失败: " + e.getMessage());
+        }
+    }
+
+    @Operation(summary = "更新用户状态")
+    @PutMapping("/updateStatus")
+    public CommonResult<String> updateUserStatus(@RequestBody UserUpdateStatusRequest request) {
+        try {
+            Assert.notNull(request.getId(), "用户ID不能为空");
+            Assert.notNull(request.getStatus(), "状态不能为空");
+            userService.updateUserStatus(request.getId(), request.getStatus());
+            return CommonResult.success("更新成功");
+        } catch (IllegalArgumentException e) {
+            return CommonResult.failed(e.getMessage());
+        } catch (UserException e) {
+            return CommonResult.failed(e.getMessage());
+        } catch (Exception e) {
+            return CommonResult.failed("更新用户状态失败: " + e.getMessage());
         }
     }
 }

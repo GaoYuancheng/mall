@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Table,
@@ -11,10 +11,11 @@ import {
   Select,
   Switch,
   InputNumber,
-} from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
-import moment from 'moment';
-import styles from './index.less';
+} from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+import moment from "moment";
+import styles from "./index.less";
+import { request } from "@/services/api";
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -36,35 +37,21 @@ const Marketing: React.FC = () => {
   const fetchPromotions = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/admin/promotion/list', {
-        headers: {
-          'Authorization': localStorage.getItem('token') || '',
-        },
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setPromotions(data.data);
-      }
+      const data = await request("/api/promotion/list");
+      setPromotions(data.data || []);
     } catch (error) {
-      console.error('获取促销活动列表失败:', error);
-      message.error('获取促销活动列表失败');
+      console.error("获取促销活动列表失败:", error);
+      message.error("获取促销活动列表失败");
     }
     setLoading(false);
   };
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('/api/admin/product/list?pageSize=1000', {
-        headers: {
-          'Authorization': localStorage.getItem('token') || '',
-        },
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setProducts(data.data.records);
-      }
+      const data = await request("/api/product/list?pageSize=1000");
+      setProducts((data.data && data.data.records) || []);
     } catch (error) {
-      console.error('获取商品列表失败:', error);
+      console.error("获取商品列表失败:", error);
     }
   };
 
@@ -89,115 +76,93 @@ const Marketing: React.FC = () => {
       const [startTime, endTime] = values.timeRange;
       const data = {
         ...values,
-        startTime: startTime.format('YYYY-MM-DD HH:mm:ss'),
-        endTime: endTime.format('YYYY-MM-DD HH:mm:ss'),
+        startTime: startTime.format("YYYY-MM-DD HH:mm:ss"),
+        endTime: endTime.format("YYYY-MM-DD HH:mm:ss"),
       };
       delete data.timeRange;
 
-      const url = editingId
-        ? `/api/admin/promotion/update`
-        : '/api/admin/promotion/create';
-      
-      const response = await fetch(url, {
-        method: editingId ? 'PUT' : 'POST',
+      const url = editingId ? `/api/promotion/update` : "/api/promotion/create";
+      await request(url, {
+        method: editingId ? "PUT" : "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('token') || '',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(editingId ? { ...data, id: editingId } : data),
       });
-
-      if (response.ok) {
-        message.success(`${editingId ? '更新' : '创建'}成功`);
-        setVisible(false);
-        fetchPromotions();
-      }
+      message.success(`${editingId ? "更新" : "创建"}成功`);
+      setVisible(false);
+      fetchPromotions();
     } catch (error) {
-      console.error('提交失败:', error);
-      message.error('提交失败');
+      console.error("提交失败:", error);
+      message.error("提交失败");
     }
   };
 
   const handleDelete = async (id: number) => {
     try {
-      const response = await fetch(`/api/admin/promotion/delete/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': localStorage.getItem('token') || '',
-        },
-      });
-
-      if (response.ok) {
-        message.success('删除成功');
-        fetchPromotions();
-      }
+      await request(`/api/promotion/delete/${id}`, { method: "DELETE" });
+      message.success("删除成功");
+      fetchPromotions();
     } catch (error) {
-      console.error('删除失败:', error);
-      message.error('删除失败');
+      console.error("删除失败:", error);
+      message.error("删除失败");
     }
   };
 
   const handleStatusChange = async (id: number, status: boolean) => {
     try {
-      const response = await fetch('/api/admin/promotion/updateStatus', {
-        method: 'PUT',
+      await request("/api/promotion/updateStatus", {
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('token') || '',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          id,
-          status: status ? 1 : 0,
-        }),
+        body: JSON.stringify({ id, status: status ? 1 : 0 }),
       });
-
-      if (response.ok) {
-        message.success('更新成功');
-        fetchPromotions();
-      }
+      message.success("更新成功");
+      fetchPromotions();
     } catch (error) {
-      console.error('更新状态失败:', error);
-      message.error('更新状态失败');
+      console.error("更新状态失败:", error);
+      message.error("更新状态失败");
     }
   };
 
   const columns = [
     {
-      title: '活动名称',
-      dataIndex: 'name',
-      key: 'name',
+      title: "活动名称",
+      dataIndex: "name",
+      key: "name",
     },
     {
-      title: '活动类型',
-      dataIndex: 'type',
-      key: 'type',
+      title: "活动类型",
+      dataIndex: "type",
+      key: "type",
       render: (type: number) => {
         switch (type) {
           case 1:
-            return '满减';
+            return "满减";
           case 2:
-            return '折扣';
+            return "折扣";
           case 3:
-            return '秒杀';
+            return "秒杀";
           default:
-            return '-';
+            return "-";
         }
       },
     },
     {
-      title: '开始时间',
-      dataIndex: 'startTime',
-      key: 'startTime',
+      title: "开始时间",
+      dataIndex: "startTime",
+      key: "startTime",
     },
     {
-      title: '结束时间',
-      dataIndex: 'endTime',
-      key: 'endTime',
+      title: "结束时间",
+      dataIndex: "endTime",
+      key: "endTime",
     },
     {
-      title: '状态',
-      dataIndex: 'status',
-      key: 'status',
+      title: "状态",
+      dataIndex: "status",
+      key: "status",
       render: (status: number, record: any) => (
         <Switch
           checked={status === 1}
@@ -206,8 +171,8 @@ const Marketing: React.FC = () => {
       ),
     },
     {
-      title: '操作',
-      key: 'action',
+      title: "操作",
+      key: "action",
       render: (text: string, record: any) => (
         <>
           <Button type="link" onClick={() => handleEdit(record)}>
@@ -218,8 +183,8 @@ const Marketing: React.FC = () => {
             danger
             onClick={() => {
               Modal.confirm({
-                title: '确认删除',
-                content: '确定要删除该活动吗？',
+                title: "确认删除",
+                content: "确定要删除该活动吗？",
                 onOk: () => handleDelete(record.id),
               });
             }}
@@ -249,20 +214,17 @@ const Marketing: React.FC = () => {
       </Card>
 
       <Modal
-        title={`${editingId ? '编辑' : '添加'}活动`}
+        title={`${editingId ? "编辑" : "添加"}活动`}
         open={visible}
         onOk={handleSubmit}
         onCancel={() => setVisible(false)}
         width={800}
       >
-        <Form
-          form={form}
-          layout="vertical"
-        >
+        <Form form={form} layout="vertical">
           <Form.Item
             name="name"
             label="活动名称"
-            rules={[{ required: true, message: '请输入活动名称' }]}
+            rules={[{ required: true, message: "请输入活动名称" }]}
           >
             <Input />
           </Form.Item>
@@ -270,7 +232,7 @@ const Marketing: React.FC = () => {
           <Form.Item
             name="type"
             label="活动类型"
-            rules={[{ required: true, message: '请选择活动类型' }]}
+            rules={[{ required: true, message: "请选择活动类型" }]}
           >
             <Select>
               <Option value={1}>满减</Option>
@@ -282,18 +244,15 @@ const Marketing: React.FC = () => {
           <Form.Item
             name="timeRange"
             label="活动时间"
-            rules={[{ required: true, message: '请选择活动时间' }]}
+            rules={[{ required: true, message: "请选择活动时间" }]}
           >
-            <RangePicker
-              showTime
-              style={{ width: '100%' }}
-            />
+            <RangePicker showTime style={{ width: "100%" }} />
           </Form.Item>
 
           <Form.Item
             name="productIds"
             label="活动商品"
-            rules={[{ required: true, message: '请选择活动商品' }]}
+            rules={[{ required: true, message: "请选择活动商品" }]}
           >
             <Select mode="multiple">
               {products.map((product: any) => (
@@ -307,15 +266,12 @@ const Marketing: React.FC = () => {
           <Form.Item
             name="rules"
             label="活动规则"
-            rules={[{ required: true, message: '请输入活动规则' }]}
+            rules={[{ required: true, message: "请输入活动规则" }]}
           >
             <TextArea rows={4} />
           </Form.Item>
 
-          <Form.Item
-            name="description"
-            label="活动描述"
-          >
+          <Form.Item name="description" label="活动描述">
             <TextArea rows={4} />
           </Form.Item>
         </Form>

@@ -26,7 +26,7 @@ public class PaymentController {
 
     @Operation(summary = "支付宝支付回调")
     @PostMapping("/alipay/callback")
-    public String handleAlipayCallback(@RequestParam String callbackContent) {
+    public String handleAlipayCallback(@RequestBody String callbackContent) {
         return paymentService.handleAlipayCallback(callbackContent);
     }
 

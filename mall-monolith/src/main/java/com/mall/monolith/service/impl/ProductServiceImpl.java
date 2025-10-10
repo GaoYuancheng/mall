@@ -54,4 +54,10 @@ public class ProductServiceImpl implements ProductService {
         // TODO: 实现批量更新商品库存逻辑
         System.out.println("批量更新商品库存");
     }
+
+    @Override
+    public void updateStatus(Long id, Integer status) {
+        // TODO: 实现更新商品状态逻辑
+        System.out.println("更新商品状态: id=" + id + ", status=" + status);
+    }
 }

@@ -11,4 +11,6 @@ public interface ProductService {
     IPage<Product> listProducts(Integer pageNum, Integer pageSize, String keyword);
     boolean updateStock(Long id, Integer count);
     void batchUpdateStock(Long[] productIds, Integer[] counts);
+
+    void updateStatus(Long id, Integer status);
 }

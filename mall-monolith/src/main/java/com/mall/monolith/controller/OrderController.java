@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.mall.common.api.CommonResult;
 import com.mall.monolith.model.Order;
 import com.mall.monolith.service.OrderService;
+import com.mall.monolith.dto.OrderDeliveryRequest;
+import com.mall.monolith.service.DeliveryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 public class OrderController {
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private DeliveryService deliveryService;
 
     @Operation(summary = "创建订单")
     @PostMapping("/create")
@@ -74,5 +79,12 @@ public class OrderController {
                                                 @RequestParam(required = false) String keyword) {
         IPage<Order> orderPage = orderService.listOrders(pageNum, pageSize, keyword);
         return CommonResult.success(orderPage);
+    }
+
+    @Operation(summary = "订单发货")
+    @PostMapping("/delivery")
+    public CommonResult<String> deliverOrder(@RequestBody OrderDeliveryRequest request) {
+        deliveryService.createDelivery(request.toDelivery());
+        return CommonResult.success("发货创建成功");
     }
 }

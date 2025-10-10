@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Row, Col, Card, Statistic } from 'antd';
+import React, { useEffect, useState } from "react";
+import { Row, Col, Card, Statistic } from "antd";
 import {
   UserOutlined,
   ShoppingCartOutlined,
   DollarOutlined,
   ShoppingOutlined,
-} from '@ant-design/icons';
-import * as echarts from 'echarts';
-import styles from './index.less';
+} from "@ant-design/icons";
+import * as echarts from "echarts";
+import styles from "./index.less";
+import { request } from "@/services/api";
 
 const Dashboard: React.FC = () => {
   const [statistics, setStatistics] = useState<any>({});
@@ -20,42 +21,35 @@ const Dashboard: React.FC = () => {
 
   const fetchStatistics = async () => {
     try {
-      const response = await fetch('/api/admin/statistics/overview', {
-        headers: {
-          'Authorization': localStorage.getItem('token') || '',
-        },
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setStatistics(data.data);
-      }
+      const data = await request("/api/statistics/overview");
+      setStatistics(data.data || {});
     } catch (error) {
-      console.error('获取统计数据失败:', error);
+      console.error("获取统计数据失败:", error);
     }
   };
 
   const initOrderChart = () => {
-    const chartDom = document.getElementById('orderChart');
+    const chartDom = document.getElementById("orderChart");
     const myChart = echarts.init(chartDom);
-    
+
     const option = {
       title: {
-        text: '订单统计',
+        text: "订单统计",
       },
       tooltip: {
-        trigger: 'axis',
+        trigger: "axis",
       },
       xAxis: {
-        type: 'category',
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+        type: "category",
+        data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
       },
       yAxis: {
-        type: 'value',
+        type: "value",
       },
       series: [
         {
-          name: '订单数',
-          type: 'line',
+          name: "订单数",
+          type: "line",
           data: [150, 230, 224, 218, 135, 147, 260],
         },
       ],
@@ -65,27 +59,27 @@ const Dashboard: React.FC = () => {
   };
 
   const initSalesChart = () => {
-    const chartDom = document.getElementById('salesChart');
+    const chartDom = document.getElementById("salesChart");
     const myChart = echarts.init(chartDom);
-    
+
     const option = {
       title: {
-        text: '销售统计',
+        text: "销售统计",
       },
       tooltip: {
-        trigger: 'axis',
+        trigger: "axis",
       },
       xAxis: {
-        type: 'category',
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+        type: "category",
+        data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
       },
       yAxis: {
-        type: 'value',
+        type: "value",
       },
       series: [
         {
-          name: '销售额',
-          type: 'bar',
+          name: "销售额",
+          type: "bar",
           data: [15000, 23000, 22400, 21800, 13500, 14700, 26000],
         },
       ],
@@ -150,14 +144,10 @@ const Dashboard: React.FC = () => {
 
       <Row gutter={24}>
         <Col span={12}>
-          <Card title="热门商品">
-            {/* TODO: 添加热门商品列表 */}
-          </Card>
+          <Card title="热门商品">{/* TODO: 添加热门商品列表 */}</Card>
         </Col>
         <Col span={12}>
-          <Card title="最新订单">
-            {/* TODO: 添加最新订单列表 */}
-          </Card>
+          <Card title="最新订单">{/* TODO: 添加最新订单列表 */}</Card>
         </Col>
       </Row>
     </div>

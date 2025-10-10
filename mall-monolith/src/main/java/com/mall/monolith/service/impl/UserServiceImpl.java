@@ -227,4 +227,21 @@ public class UserServiceImpl implements UserService {
             userList
         );
     }
+
+    @Override
+    public void updateUserStatus(Long userId, Integer status) {
+        User user = userMapper.selectById(userId);
+        if (user == null) {
+            throw new UserException("用户不存在");
+        }
+        if (status == null || (status != 0 && status != 1)) {
+            throw new UserException("状态值非法");
+        }
+        user.setStatus(status);
+        user.setUpdateTime(LocalDateTime.now());
+        int result = userMapper.updateById(user);
+        if (result <= 0) {
+            throw new UserException("更新用户状态失败");
+        }
+    }
 }

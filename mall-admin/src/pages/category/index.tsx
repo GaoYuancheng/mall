@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   Card,
   Table,
@@ -11,9 +11,10 @@ import {
   Upload,
   InputNumber,
   Switch,
-} from 'antd';
-import { PlusOutlined, UploadOutlined } from '@ant-design/icons';
-import styles from './index.less';
+} from "antd";
+import { PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import styles from "./index.less";
+import { categoryApi, uploadApi } from "@/services/api";
 
 const { TextArea } = Input;
 
@@ -31,18 +32,11 @@ const Category: React.FC = () => {
   const fetchCategories = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/admin/category/list', {
-        headers: {
-          'Authorization': localStorage.getItem('token') || '',
-        },
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setCategories(data.data);
-      }
+      const data = await categoryApi.getList();
+      setCategories(data.data || []);
     } catch (error) {
-      console.error('获取分类列表失败:', error);
-      message.error('获取分类列表失败');
+      console.error("获取分类列表失败:", error);
+      message.error("获取分类列表失败");
     }
     setLoading(false);
   };
@@ -62,106 +56,78 @@ const Category: React.FC = () => {
   const handleSubmit = async () => {
     try {
       const values = await form.validateFields();
-      const url = editingId
-        ? `/api/admin/category/update`
-        : '/api/admin/category/create';
-      
-      const response = await fetch(url, {
-        method: editingId ? 'PUT' : 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('token') || '',
-        },
-        body: JSON.stringify(editingId ? { ...values, id: editingId } : values),
-      });
-
-      if (response.ok) {
-        message.success(`${editingId ? '更新' : '创建'}成功`);
-        setVisible(false);
-        fetchCategories();
+      if (editingId) {
+        await categoryApi.update({ ...values, id: editingId });
+      } else {
+        await categoryApi.create(values);
       }
+      message.success(`${editingId ? "更新" : "创建"}成功`);
+      setVisible(false);
+      fetchCategories();
     } catch (error) {
-      console.error('提交失败:', error);
-      message.error('提交失败');
+      console.error("提交失败:", error);
+      message.error("提交失败");
     }
   };
 
   const handleDelete = async (id: number) => {
     try {
-      const response = await fetch(`/api/admin/category/delete/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': localStorage.getItem('token') || '',
-        },
-      });
-
-      if (response.ok) {
-        message.success('删除成功');
-        fetchCategories();
-      }
+      await categoryApi.delete(id);
+      message.success("删除成功");
+      fetchCategories();
     } catch (error) {
-      console.error('删除失败:', error);
-      message.error('删除失败');
+      console.error("删除失败:", error);
+      message.error("删除失败");
     }
   };
 
   const handleStatusChange = async (id: number, status: boolean) => {
     try {
-      const response = await fetch('/api/admin/category/updateStatus', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('token') || '',
-        },
-        body: JSON.stringify({
-          id,
-          status: status ? 1 : 0,
-        }),
-      });
-
-      if (response.ok) {
-        message.success('更新成功');
-        fetchCategories();
-      }
+      await categoryApi.updateStatus(id, status ? 1 : 0);
+      message.success("更新成功");
+      fetchCategories();
     } catch (error) {
-      console.error('更新状态失败:', error);
-      message.error('更新状态失败');
+      console.error("更新状态失败:", error);
+      message.error("更新状态失败");
     }
   };
 
   const columns = [
     {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
     },
     {
-      title: '分类名称',
-      dataIndex: 'name',
-      key: 'name',
+      title: "分类名称",
+      dataIndex: "name",
+      key: "name",
     },
     {
-      title: '图标',
-      dataIndex: 'icon',
-      key: 'icon',
-      render: (icon: string) => (
-        icon ? <img src={icon} alt="分类图标" style={{ width: 30, height: 30 }} /> : '-'
-      ),
+      title: "图标",
+      dataIndex: "icon",
+      key: "icon",
+      render: (icon: string) =>
+        icon ? (
+          <img src={icon} alt="分类图标" style={{ width: 30, height: 30 }} />
+        ) : (
+          "-"
+        ),
     },
     {
-      title: '排序',
-      dataIndex: 'sort',
-      key: 'sort',
+      title: "排序",
+      dataIndex: "sort",
+      key: "sort",
     },
     {
-      title: '层级',
-      dataIndex: 'level',
-      key: 'level',
+      title: "层级",
+      dataIndex: "level",
+      key: "level",
     },
     {
-      title: '状态',
-      dataIndex: 'status',
-      key: 'status',
+      title: "状态",
+      dataIndex: "status",
+      key: "status",
       render: (status: number, record: any) => (
         <Switch
           checked={status === 1}
@@ -170,8 +136,8 @@ const Category: React.FC = () => {
       ),
     },
     {
-      title: '操作',
-      key: 'action',
+      title: "操作",
+      key: "action",
       render: (text: string, record: any) => (
         <>
           <Button type="link" onClick={() => handleEdit(record)}>
@@ -182,8 +148,8 @@ const Category: React.FC = () => {
             danger
             onClick={() => {
               Modal.confirm({
-                title: '确认删除',
-                content: '确定要删除该分类吗？',
+                title: "确认删除",
+                content: "确定要删除该分类吗？",
                 onOk: () => handleDelete(record.id),
               });
             }}
@@ -213,27 +179,21 @@ const Category: React.FC = () => {
       </Card>
 
       <Modal
-        title={`${editingId ? '编辑' : '添加'}分类`}
+        title={`${editingId ? "编辑" : "添加"}分类`}
         open={visible}
         onOk={handleSubmit}
         onCancel={() => setVisible(false)}
       >
-        <Form
-          form={form}
-          layout="vertical"
-        >
+        <Form form={form} layout="vertical">
           <Form.Item
             name="name"
             label="分类名称"
-            rules={[{ required: true, message: '请输入分类名称' }]}
+            rules={[{ required: true, message: "请输入分类名称" }]}
           >
             <Input />
           </Form.Item>
 
-          <Form.Item
-            name="parentId"
-            label="上级分类"
-          >
+          <Form.Item name="parentId" label="上级分类">
             <TreeSelect
               treeData={categories.map((item: any) => ({
                 title: item.name,
@@ -246,20 +206,17 @@ const Category: React.FC = () => {
             />
           </Form.Item>
 
-          <Form.Item
-            name="icon"
-            label="分类图标"
-          >
+          <Form.Item name="icon" label="分类图标">
             <Upload
               name="file"
-              action="/api/admin/upload"
+              action="/api/upload"
               headers={{
-                Authorization: localStorage.getItem('token') || '',
+                Authorization: localStorage.getItem("token") || "",
               }}
               listType="picture"
               maxCount={1}
               onChange={({ file }) => {
-                if (file.status === 'done') {
+                if (file.status === "done") {
                   form.setFieldsValue({
                     icon: file.response.data,
                   });
@@ -273,15 +230,12 @@ const Category: React.FC = () => {
           <Form.Item
             name="sort"
             label="排序"
-            rules={[{ required: true, message: '请输入排序值' }]}
+            rules={[{ required: true, message: "请输入排序值" }]}
           >
-            <InputNumber min={0} style={{ width: '100%' }} />
+            <InputNumber min={0} style={{ width: "100%" }} />
           </Form.Item>
 
-          <Form.Item
-            name="description"
-            label="描述"
-          >
+          <Form.Item name="description" label="描述">
             <TextArea rows={4} />
           </Form.Item>
         </Form>

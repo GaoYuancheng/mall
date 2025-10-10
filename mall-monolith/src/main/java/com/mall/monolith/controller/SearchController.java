@@ -41,7 +41,7 @@ public class SearchController {
 
     @Operation(summary = "批量删除商品")
     @PostMapping("/delete/batch")
-    public CommonResult<String> delete(@RequestParam("ids") List<Long> ids) {
+    public CommonResult<String> delete(@RequestBody List<Long> ids) {
         searchService.delete(ids);
         return CommonResult.success("删除成功");
     }

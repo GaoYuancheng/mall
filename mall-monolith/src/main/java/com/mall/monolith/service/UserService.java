@@ -58,4 +58,9 @@ public interface UserService {
      * 获取用户列表（分页查询）
      */
     PageResult<User> getUserList(UserListRequest request);
+
+    /**
+     * 更新用户状态
+     */
+    void updateUserStatus(Long userId, Integer status);
 }

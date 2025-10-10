@@ -1,18 +1,17 @@
 import { message } from "antd";
-import { history } from "umi";
 
 // API 服务层 - 统一管理微服务接口调用
 
 const API_BASE_URL = "";
 
-// 通用请求配置
-const defaultHeaders = {
-  "Content-Type": "application/json",
-  Authorization: localStorage.getItem("token") || "",
-};
-
 // 通用请求方法
-const request = async (url: string, options: RequestInit = {}) => {
+export const request = async (url: string, options: RequestInit = {}) => {
+  // 通用请求配置
+  const defaultHeaders = {
+    "Content-Type": "application/json",
+    Authorization: localStorage.getItem("token") || "",
+  };
+
   const config: RequestInit = {
     headers: {
       ...defaultHeaders,
@@ -20,7 +19,6 @@ const request = async (url: string, options: RequestInit = {}) => {
     },
     ...options,
   };
-  console.log("🚀 ~ request ~ config:", config);
 
   const response = await fetch(url, config);
 
@@ -30,7 +28,7 @@ const request = async (url: string, options: RequestInit = {}) => {
 
   if (response?.status === 401) {
     localStorage.removeItem("token");
-    history.push("/login");
+    window.location.replace("/login");
   }
 
   const res = await response.json();

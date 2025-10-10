@@ -3,6 +3,7 @@ package com.mall.monolith.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.mall.common.api.CommonResult;
 import com.mall.monolith.model.Product;
+import com.mall.monolith.dto.ProductStatusUpdateRequest;
 import com.mall.monolith.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -68,6 +69,13 @@ public class ProductController {
     @PutMapping("/stock/batch")
     public CommonResult<String> batchUpdateStock(@RequestParam Long[] productIds, @RequestParam Integer[] counts) {
         productService.batchUpdateStock(productIds, counts);
+        return CommonResult.success("更新成功");
+    }
+
+    @Operation(summary = "更新商品状态")
+    @PutMapping("/updateStatus")
+    public CommonResult<String> updateProductStatus(@RequestBody ProductStatusUpdateRequest request) {
+        productService.updateStatus(request.getId(), request.getStatus());
         return CommonResult.success("更新成功");
     }
 }
