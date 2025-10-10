@@ -201,18 +201,19 @@ const User: React.FC = () => {
             </Form.Item>
           )}
 
-          <Form.Item
-            name="nickname"
-            label="昵称"
-            rules={[{ required: true, message: "请输入昵称" }]}
-          >
+          <Form.Item name="nickname" label="昵称" rules={[]}>
             <Input />
           </Form.Item>
 
           <Form.Item
             name="phone"
             label="手机号"
-            rules={[{ required: true, message: "请输入手机号" }]}
+            rules={[
+              {
+                pattern: /^$|^1[3-9]\d{9}$/,
+                message: "请输入正确的手机号",
+              },
+            ]}
           >
             <Input />
           </Form.Item>
@@ -220,10 +221,7 @@ const User: React.FC = () => {
           <Form.Item
             name="email"
             label="邮箱"
-            rules={[
-              { required: true, message: "请输入邮箱" },
-              { type: "email", message: "请输入正确的邮箱格式" },
-            ]}
+            rules={[{ type: "email", message: "请输入正确的邮箱格式" }]}
           >
             <Input />
           </Form.Item>

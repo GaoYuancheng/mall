@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Card, Statistic } from "antd";
+import { Row, Col, Card, Statistic, DatePicker, Table } from "antd";
 import {
   UserOutlined,
   ShoppingCartOutlined,
@@ -8,27 +8,89 @@ import {
 } from "@ant-design/icons";
 import * as echarts from "echarts";
 import styles from "./index.less";
-import { request } from "@/services/api";
+import moment from "moment";
+import { statisticsApi, orderApi } from "../../services/api";
+
+const { RangePicker } = DatePicker;
 
 const Dashboard: React.FC = () => {
   const [statistics, setStatistics] = useState<any>({});
+  const [dateRange, setDateRange] = useState([
+    moment().subtract(7, "days"),
+    moment(),
+  ]);
+  const [timeUnit, setTimeUnit] = useState("day");
+  const [salesSeries, setSalesSeries] = useState<any[]>([]);
+  const [orderSeries, setOrderSeries] = useState<any[]>([]);
+  const [topProducts, setTopProducts] = useState<any[]>([]);
+  const [latestOrders, setLatestOrders] = useState<any[]>([]);
 
   useEffect(() => {
     fetchStatistics();
-    initOrderChart();
-    initSalesChart();
   }, []);
+
+  useEffect(() => {
+    fetchTrends();
+    fetchTopProducts();
+    fetchLatestOrders();
+  }, [dateRange, timeUnit]);
 
   const fetchStatistics = async () => {
     try {
-      const data = await request("/api/statistics/overview");
-      setStatistics(data.data || {});
+      const res = await statisticsApi.getOverview();
+      setStatistics(res.data || {});
     } catch (error) {
       console.error("获取统计数据失败:", error);
     }
   };
 
-  const initOrderChart = () => {
+  const fetchTrends = async () => {
+    try {
+      const startTime = dateRange[0].format("YYYY-MM-DD");
+      const endTime = dateRange[1].format("YYYY-MM-DD");
+      const salesRes = await statisticsApi.getSales({
+        startTime,
+        endTime,
+        timeUnit,
+      });
+      const ordersRes = await statisticsApi.getOrders({
+        startTime,
+        endTime,
+        timeUnit,
+      });
+
+      const salesData = salesRes.data || [];
+      const ordersData = ordersRes.data || [];
+      setSalesSeries(salesData);
+      setOrderSeries(ordersData);
+      initSalesChart(salesData);
+      initOrderChart(ordersData);
+    } catch (error) {
+      console.error("获取趋势数据失败:", error);
+    }
+  };
+
+  const fetchTopProducts = async () => {
+    try {
+      const startTime = dateRange[0].format("YYYY-MM-DD");
+      const endTime = dateRange[1].format("YYYY-MM-DD");
+      const res = await statisticsApi.getProductRanking({ startTime, endTime });
+      setTopProducts(res.data || []);
+    } catch (error) {
+      console.error("获取商品排行失败:", error);
+    }
+  };
+
+  const fetchLatestOrders = async () => {
+    try {
+      const res = await orderApi.getList({ pageNum: 1, pageSize: 10 });
+      setLatestOrders((res.data && res.data.records) || []);
+    } catch (error) {
+      console.error("获取最新订单失败:", error);
+    }
+  };
+
+  const initOrderChart = (data: any[] = orderSeries) => {
     const chartDom = document.getElementById("orderChart");
     const myChart = echarts.init(chartDom);
 
@@ -41,7 +103,7 @@ const Dashboard: React.FC = () => {
       },
       xAxis: {
         type: "category",
-        data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+        data: data.map((item: any) => item.date),
       },
       yAxis: {
         type: "value",
@@ -50,7 +112,7 @@ const Dashboard: React.FC = () => {
         {
           name: "订单数",
           type: "line",
-          data: [150, 230, 224, 218, 135, 147, 260],
+          data: data.map((item: any) => item.count),
         },
       ],
     };
@@ -58,7 +120,7 @@ const Dashboard: React.FC = () => {
     myChart.setOption(option);
   };
 
-  const initSalesChart = () => {
+  const initSalesChart = (data: any[] = salesSeries) => {
     const chartDom = document.getElementById("salesChart");
     const myChart = echarts.init(chartDom);
 
@@ -71,7 +133,7 @@ const Dashboard: React.FC = () => {
       },
       xAxis: {
         type: "category",
-        data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+        data: data.map((item: any) => item.date),
       },
       yAxis: {
         type: "value",
@@ -80,7 +142,7 @@ const Dashboard: React.FC = () => {
         {
           name: "销售额",
           type: "bar",
-          data: [15000, 23000, 22400, 21800, 13500, 14700, 26000],
+          data: data.map((item: any) => item.amount),
         },
       ],
     };
@@ -132,6 +194,12 @@ const Dashboard: React.FC = () => {
       <Row gutter={24} className={styles.charts}>
         <Col span={12}>
           <Card>
+            <div style={{ marginBottom: 12 }}>
+              <RangePicker
+                value={dateRange as any}
+                onChange={(dates) => setDateRange(dates as any)}
+              />
+            </div>
             <div id="orderChart" className={styles.chart} />
           </Card>
         </Col>
@@ -144,10 +212,58 @@ const Dashboard: React.FC = () => {
 
       <Row gutter={24}>
         <Col span={12}>
-          <Card title="热门商品">{/* TODO: 添加热门商品列表 */}</Card>
+          <Card title="热门商品">
+            <Table
+              size="small"
+              rowKey="id"
+              pagination={false}
+              dataSource={topProducts}
+              columns={[
+                {
+                  title: "排名",
+                  key: "rank",
+                  render: (_: any, __: any, i: number) => i + 1,
+                },
+                { title: "商品名称", dataIndex: "name", key: "name" },
+                { title: "销量", dataIndex: "sales", key: "sales" },
+                {
+                  title: "销售额",
+                  dataIndex: "amount",
+                  key: "amount",
+                  render: (v: number) => `¥${(v || 0).toFixed(2)}`,
+                },
+              ]}
+            />
+          </Card>
         </Col>
         <Col span={12}>
-          <Card title="最新订单">{/* TODO: 添加最新订单列表 */}</Card>
+          <Card title="最新订单">
+            <Table
+              size="small"
+              rowKey="id"
+              pagination={false}
+              dataSource={latestOrders}
+              columns={[
+                { title: "订单号", dataIndex: "orderSn", key: "orderSn" },
+                {
+                  title: "用户",
+                  dataIndex: "receiverName",
+                  key: "receiverName",
+                },
+                {
+                  title: "金额",
+                  dataIndex: "totalAmount",
+                  key: "totalAmount",
+                  render: (v: number) => `¥${(v || 0).toFixed(2)}`,
+                },
+                {
+                  title: "创建时间",
+                  dataIndex: "createTime",
+                  key: "createTime",
+                },
+              ]}
+            />
+          </Card>
         </Col>
       </Row>
     </div>

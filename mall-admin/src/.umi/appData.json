@@ -105,6 +105,19 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
           ]
         },
@@ -137,7 +150,24 @@
             9,
             3,
             4,
-            9
+            9,
+            29,
+            10,
+            12,
+            16,
+            7,
+            18,
+            10,
+            5,
+            13,
+            6,
+            9,
+            19,
+            7,
+            11,
+            12,
+            8,
+            12
           ]
         },
         "register": 4
@@ -164,7 +194,20 @@
             16,
             10,
             13,
-            11
+            11,
+            16,
+            18,
+            15,
+            16,
+            13,
+            9,
+            14,
+            24,
+            31,
+            12,
+            16,
+            11,
+            34
           ]
         },
         "register": 121
@@ -181,6 +224,19 @@
       "time": {
         "hooks": {
           "addEntryCode": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -211,6 +267,20 @@
             0
           ],
           "onPrepareBuildSuccess": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -259,6 +329,24 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
             0,
             0,
             0
@@ -1272,6 +1360,29 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
           ]
         },
@@ -1296,12 +1407,38 @@
             1,
             1,
             1,
-            1
+            1,
+            1,
+            1,
+            1,
+            3,
+            1,
+            0,
+            1,
+            1,
+            2,
+            1,
+            0,
+            1,
+            2
           ],
           "addRuntimePlugin": [
             1,
             0,
             1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -1387,6 +1524,19 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
           ],
           "addEntryImports": [
@@ -1405,6 +1555,32 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
             0
           ]
         },
@@ -1445,9 +1621,48 @@
             29,
             41,
             37,
-            22
+            22,
+            50,
+            64,
+            24,
+            61,
+            43,
+            23,
+            68,
+            24,
+            50,
+            22,
+            53,
+            61,
+            43
           ],
           "addPolyfillImports": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -1494,6 +1709,32 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
           ]
         },
@@ -1512,6 +1753,19 @@
         "hooks": {
           "onGenerateFiles": [
             390,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -1568,7 +1822,20 @@
             1,
             0,
             1,
-            1
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            3,
+            0,
+            0,
+            1,
+            2,
+            1,
+            0
           ],
           "addBeforeMiddlewares": [
             0
@@ -1603,7 +1870,33 @@
             31,
             6,
             26,
-            8
+            8,
+            26,
+            4,
+            43,
+            37,
+            35,
+            10,
+            43,
+            6,
+            29,
+            10,
+            22,
+            5,
+            60,
+            8,
+            26,
+            11,
+            40,
+            4,
+            30,
+            7,
+            61,
+            13,
+            29,
+            7,
+            41,
+            5
           ]
         },
         "register": 20
@@ -1665,7 +1958,20 @@
             22,
             19,
             41,
-            26
+            26,
+            12,
+            42,
+            14,
+            30,
+            33,
+            10,
+            29,
+            19,
+            20,
+            20,
+            87,
+            20,
+            14
           ]
         },
         "register": 12
@@ -1757,7 +2063,20 @@
             2,
             2,
             2,
-            2
+            2,
+            1,
+            9,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            1,
+            1,
+            18,
+            1,
+            1
           ]
         },
         "register": 2
@@ -1899,6 +2218,29 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
             0,
             0,
             0,
@@ -2304,9 +2646,48 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
             0
           ],
           "addRuntimePlugin": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -2324,6 +2705,19 @@
             0,
             0,
             0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
           ],
           "onGenerateFiles": [
@@ -2334,6 +2728,19 @@
             2,
             3,
             3,
+            2,
+            1,
+            4,
+            3,
+            3,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            4,
+            1,
             2
           ],
           "addExtraBabelPlugins": [
@@ -2363,6 +2770,19 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
           ],
           "onGenerateFiles": [
@@ -2373,7 +2793,20 @@
             2,
             2,
             4,
-            2
+            2,
+            1,
+            3,
+            1,
+            1,
+            2,
+            1,
+            2,
+            3,
+            1,
+            3,
+            4,
+            1,
+            4
           ]
         },
         "register": 2
@@ -2397,6 +2830,19 @@
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0
           ],
           "onGenerateFiles": [
@@ -2407,7 +2853,20 @@
             39,
             44,
             40,
-            49
+            49,
+            28,
+            42,
+            37,
+            40,
+            38,
+            30,
+            51,
+            49,
+            44,
+            67,
+            81,
+            37,
+            39
           ],
           "addTmpGenerateWatcherPaths": [
             0
@@ -3542,7 +4001,7 @@
       "parentId": "2",
       "id": "4",
       "absPath": "/dashboard",
-      "__content": "import React, { useEffect, useState } from \"react\";\r\nimport { Row, Col, Card, Statistic } from \"antd\";\r\nimport {\r\n  UserOutlined,\r\n  ShoppingCartOutlined,\r\n  DollarOutlined,\r\n  ShoppingOutlined,\r\n} from \"@ant-design/icons\";\r\nimport * as echarts from \"echarts\";\r\nimport styles from \"./index.less\";\r\nimport { request } from \"@/services/api\";\r\n\r\nconst Dashboard: React.FC = () => {\r\n  const [statistics, setStatistics] = useState<any>({});\r\n\r\n  useEffect(() => {\r\n    fetchStatistics();\r\n    initOrderChart();\r\n    initSalesChart();\r\n  }, []);\r\n\r\n  const fetchStatistics = async () => {\r\n    try {\r\n      const data = await request(\"/api/statistics/overview\");\r\n      setStatistics(data.data || {});\r\n    } catch (error) {\r\n      console.error(\"获取统计数据失败:\", error);\r\n    }\r\n  };\r\n\r\n  const initOrderChart = () => {\r\n    const chartDom = document.getElementById(\"orderChart\");\r\n    const myChart = echarts.init(chartDom);\r\n\r\n    const option = {\r\n      title: {\r\n        text: \"订单统计\",\r\n      },\r\n      tooltip: {\r\n        trigger: \"axis\",\r\n      },\r\n      xAxis: {\r\n        type: \"category\",\r\n        data: [\"周一\", \"周二\", \"周三\", \"周四\", \"周五\", \"周六\", \"周日\"],\r\n      },\r\n      yAxis: {\r\n        type: \"value\",\r\n      },\r\n      series: [\r\n        {\r\n          name: \"订单数\",\r\n          type: \"line\",\r\n          data: [150, 230, 224, 218, 135, 147, 260],\r\n        },\r\n      ],\r\n    };\r\n\r\n    myChart.setOption(option);\r\n  };\r\n\r\n  const initSalesChart = () => {\r\n    const chartDom = document.getElementById(\"salesChart\");\r\n    const myChart = echarts.init(chartDom);\r\n\r\n    const option = {\r\n      title: {\r\n        text: \"销售统计\",\r\n      },\r\n      tooltip: {\r\n        trigger: \"axis\",\r\n      },\r\n      xAxis: {\r\n        type: \"category\",\r\n        data: [\"周一\", \"周二\", \"周三\", \"周四\", \"周五\", \"周六\", \"周日\"],\r\n      },\r\n      yAxis: {\r\n        type: \"value\",\r\n      },\r\n      series: [\r\n        {\r\n          name: \"销售额\",\r\n          type: \"bar\",\r\n          data: [15000, 23000, 22400, 21800, 13500, 14700, 26000],\r\n        },\r\n      ],\r\n    };\r\n\r\n    myChart.setOption(option);\r\n  };\r\n\r\n  return (\r\n    <div className={styles.container}>\r\n      <Row gutter={24}>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"总用户数\"\r\n              value={statistics.totalUsers || 0}\r\n              prefix={<UserOutlined />}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"总订单数\"\r\n              value={statistics.totalOrders || 0}\r\n              prefix={<ShoppingCartOutlined />}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"总销售额\"\r\n              value={statistics.totalSales || 0}\r\n              prefix={<DollarOutlined />}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"商品数量\"\r\n              value={statistics.totalProducts || 0}\r\n              prefix={<ShoppingOutlined />}\r\n            />\r\n          </Card>\r\n        </Col>\r\n      </Row>\r\n\r\n      <Row gutter={24} className={styles.charts}>\r\n        <Col span={12}>\r\n          <Card>\r\n            <div id=\"orderChart\" className={styles.chart} />\r\n          </Card>\r\n        </Col>\r\n        <Col span={12}>\r\n          <Card>\r\n            <div id=\"salesChart\" className={styles.chart} />\r\n          </Card>\r\n        </Col>\r\n      </Row>\r\n\r\n      <Row gutter={24}>\r\n        <Col span={12}>\r\n          <Card title=\"热门商品\">{/* TODO: 添加热门商品列表 */}</Card>\r\n        </Col>\r\n        <Col span={12}>\r\n          <Card title=\"最新订单\">{/* TODO: 添加最新订单列表 */}</Card>\r\n        </Col>\r\n      </Row>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Dashboard;\r\n",
+      "__content": "import React, { useEffect, useState } from \"react\";\r\nimport { Row, Col, Card, Statistic, DatePicker, Table } from \"antd\";\r\nimport {\r\n  UserOutlined,\r\n  ShoppingCartOutlined,\r\n  DollarOutlined,\r\n  ShoppingOutlined,\r\n} from \"@ant-design/icons\";\r\nimport * as echarts from \"echarts\";\r\nimport styles from \"./index.less\";\r\nimport moment from \"moment\";\r\nimport { statisticsApi, orderApi } from \"../../services/api\";\r\n\r\nconst { RangePicker } = DatePicker;\r\n\r\nconst Dashboard: React.FC = () => {\r\n  const [statistics, setStatistics] = useState<any>({});\r\n  const [dateRange, setDateRange] = useState([\r\n    moment().subtract(7, \"days\"),\r\n    moment(),\r\n  ]);\r\n  const [timeUnit, setTimeUnit] = useState(\"day\");\r\n  const [salesSeries, setSalesSeries] = useState<any[]>([]);\r\n  const [orderSeries, setOrderSeries] = useState<any[]>([]);\r\n  const [topProducts, setTopProducts] = useState<any[]>([]);\r\n  const [latestOrders, setLatestOrders] = useState<any[]>([]);\r\n\r\n  useEffect(() => {\r\n    fetchStatistics();\r\n  }, []);\r\n\r\n  useEffect(() => {\r\n    fetchTrends();\r\n    fetchTopProducts();\r\n    fetchLatestOrders();\r\n  }, [dateRange, timeUnit]);\r\n\r\n  const fetchStatistics = async () => {\r\n    try {\r\n      const res = await statisticsApi.getOverview();\r\n      setStatistics(res.data || {});\r\n    } catch (error) {\r\n      console.error(\"获取统计数据失败:\", error);\r\n    }\r\n  };\r\n\r\n  const fetchTrends = async () => {\r\n    try {\r\n      const startTime = dateRange[0].format(\"YYYY-MM-DD\");\r\n      const endTime = dateRange[1].format(\"YYYY-MM-DD\");\r\n      const salesRes = await statisticsApi.getSales({\r\n        startTime,\r\n        endTime,\r\n        timeUnit,\r\n      });\r\n      const ordersRes = await statisticsApi.getOrders({\r\n        startTime,\r\n        endTime,\r\n        timeUnit,\r\n      });\r\n\r\n      const salesData = salesRes.data || [];\r\n      const ordersData = ordersRes.data || [];\r\n      setSalesSeries(salesData);\r\n      setOrderSeries(ordersData);\r\n      initSalesChart(salesData);\r\n      initOrderChart(ordersData);\r\n    } catch (error) {\r\n      console.error(\"获取趋势数据失败:\", error);\r\n    }\r\n  };\r\n\r\n  const fetchTopProducts = async () => {\r\n    try {\r\n      const startTime = dateRange[0].format(\"YYYY-MM-DD\");\r\n      const endTime = dateRange[1].format(\"YYYY-MM-DD\");\r\n      const res = await statisticsApi.getProductRanking({ startTime, endTime });\r\n      setTopProducts(res.data || []);\r\n    } catch (error) {\r\n      console.error(\"获取商品排行失败:\", error);\r\n    }\r\n  };\r\n\r\n  const fetchLatestOrders = async () => {\r\n    try {\r\n      const res = await orderApi.getList({ pageNum: 1, pageSize: 10 });\r\n      setLatestOrders((res.data && res.data.records) || []);\r\n    } catch (error) {\r\n      console.error(\"获取最新订单失败:\", error);\r\n    }\r\n  };\r\n\r\n  const initOrderChart = (data: any[] = orderSeries) => {\r\n    const chartDom = document.getElementById(\"orderChart\");\r\n    const myChart = echarts.init(chartDom);\r\n\r\n    const option = {\r\n      title: {\r\n        text: \"订单统计\",\r\n      },\r\n      tooltip: {\r\n        trigger: \"axis\",\r\n      },\r\n      xAxis: {\r\n        type: \"category\",\r\n        data: data.map((item: any) => item.date),\r\n      },\r\n      yAxis: {\r\n        type: \"value\",\r\n      },\r\n      series: [\r\n        {\r\n          name: \"订单数\",\r\n          type: \"line\",\r\n          data: data.map((item: any) => item.count),\r\n        },\r\n      ],\r\n    };\r\n\r\n    myChart.setOption(option);\r\n  };\r\n\r\n  const initSalesChart = (data: any[] = salesSeries) => {\r\n    const chartDom = document.getElementById(\"salesChart\");\r\n    const myChart = echarts.init(chartDom);\r\n\r\n    const option = {\r\n      title: {\r\n        text: \"销售统计\",\r\n      },\r\n      tooltip: {\r\n        trigger: \"axis\",\r\n      },\r\n      xAxis: {\r\n        type: \"category\",\r\n        data: data.map((item: any) => item.date),\r\n      },\r\n      yAxis: {\r\n        type: \"value\",\r\n      },\r\n      series: [\r\n        {\r\n          name: \"销售额\",\r\n          type: \"bar\",\r\n          data: data.map((item: any) => item.amount),\r\n        },\r\n      ],\r\n    };\r\n\r\n    myChart.setOption(option);\r\n  };\r\n\r\n  return (\r\n    <div className={styles.container}>\r\n      <Row gutter={24}>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"总用户数\"\r\n              value={statistics.totalUsers || 0}\r\n              prefix={<UserOutlined />}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"总订单数\"\r\n              value={statistics.totalOrders || 0}\r\n              prefix={<ShoppingCartOutlined />}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"总销售额\"\r\n              value={statistics.totalSales || 0}\r\n              prefix={<DollarOutlined />}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"商品数量\"\r\n              value={statistics.totalProducts || 0}\r\n              prefix={<ShoppingOutlined />}\r\n            />\r\n          </Card>\r\n        </Col>\r\n      </Row>\r\n\r\n      <Row gutter={24} className={styles.charts}>\r\n        <Col span={12}>\r\n          <Card>\r\n            <div style={{ marginBottom: 12 }}>\r\n              <RangePicker\r\n                value={dateRange as any}\r\n                onChange={(dates) => setDateRange(dates as any)}\r\n              />\r\n            </div>\r\n            <div id=\"orderChart\" className={styles.chart} />\r\n          </Card>\r\n        </Col>\r\n        <Col span={12}>\r\n          <Card>\r\n            <div id=\"salesChart\" className={styles.chart} />\r\n          </Card>\r\n        </Col>\r\n      </Row>\r\n\r\n      <Row gutter={24}>\r\n        <Col span={12}>\r\n          <Card title=\"热门商品\">\r\n            <Table\r\n              size=\"small\"\r\n              rowKey=\"id\"\r\n              pagination={false}\r\n              dataSource={topProducts}\r\n              columns={[\r\n                {\r\n                  title: \"排名\",\r\n                  key: \"rank\",\r\n                  render: (_: any, __: any, i: number) => i + 1,\r\n                },\r\n                { title: \"商品名称\", dataIndex: \"name\", key: \"name\" },\r\n                { title: \"销量\", dataIndex: \"sales\", key: \"sales\" },\r\n                {\r\n                  title: \"销售额\",\r\n                  dataIndex: \"amount\",\r\n                  key: \"amount\",\r\n                  render: (v: number) => `¥${(v || 0).toFixed(2)}`,\r\n                },\r\n              ]}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={12}>\r\n          <Card title=\"最新订单\">\r\n            <Table\r\n              size=\"small\"\r\n              rowKey=\"id\"\r\n              pagination={false}\r\n              dataSource={latestOrders}\r\n              columns={[\r\n                { title: \"订单号\", dataIndex: \"orderSn\", key: \"orderSn\" },\r\n                {\r\n                  title: \"用户\",\r\n                  dataIndex: \"receiverName\",\r\n                  key: \"receiverName\",\r\n                },\r\n                {\r\n                  title: \"金额\",\r\n                  dataIndex: \"totalAmount\",\r\n                  key: \"totalAmount\",\r\n                  render: (v: number) => `¥${(v || 0).toFixed(2)}`,\r\n                },\r\n                {\r\n                  title: \"创建时间\",\r\n                  dataIndex: \"createTime\",\r\n                  key: \"createTime\",\r\n                },\r\n              ]}\r\n            />\r\n          </Card>\r\n        </Col>\r\n      </Row>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Dashboard;\r\n",
       "__isJSFile": true,
       "__absFile": "D:/git-repo-m/javaDemo2/mall-admin/src/pages/dashboard/index.tsx"
     },
@@ -3552,7 +4011,7 @@
       "parentId": "2",
       "id": "5",
       "absPath": "/user",
-      "__content": "import React, { useEffect, useState } from \"react\";\r\nimport {\r\n  Card,\r\n  Table,\r\n  Button,\r\n  Input,\r\n  Modal,\r\n  Form,\r\n  message,\r\n  Switch,\r\n  Tag,\r\n} from \"antd\";\r\nimport { PlusOutlined, SearchOutlined } from \"@ant-design/icons\";\r\nimport { userApi } from \"@/services/api\";\r\nimport styles from \"./index.less\";\r\n\r\nconst { Search } = Input;\r\n\r\nconst User: React.FC = () => {\r\n  const [form] = Form.useForm();\r\n  const [loading, setLoading] = useState(false);\r\n  const [users, setUsers] = useState([]);\r\n  const [total, setTotal] = useState(0);\r\n  const [visible, setVisible] = useState(false);\r\n  const [editingId, setEditingId] = useState<number | null>(null);\r\n  const [searchParams, setSearchParams] = useState({\r\n    pageNum: 1,\r\n    pageSize: 10,\r\n    username: \"\",\r\n  });\r\n\r\n  useEffect(() => {\r\n    fetchUsers();\r\n  }, [searchParams]);\r\n\r\n  const fetchUsers = async () => {\r\n    setLoading(true);\r\n    try {\r\n      const res = await userApi.getList(searchParams);\r\n      setUsers(res.data.list);\r\n      setTotal(res.data.total);\r\n    } catch (error) {\r\n      console.error(\"获取用户列表失败:\", error);\r\n      message.error(\"获取用户列表失败\");\r\n    }\r\n    setLoading(false);\r\n  };\r\n\r\n  const handleSearch = (value: string) => {\r\n    setSearchParams((prev) => ({ ...prev, username: value, pageNum: 1 }));\r\n  };\r\n\r\n  const handleAdd = () => {\r\n    form.resetFields();\r\n    setEditingId(null);\r\n    setVisible(true);\r\n  };\r\n\r\n  const handleEdit = (record: any) => {\r\n    form.setFieldsValue(record);\r\n    setEditingId(record.id);\r\n    setVisible(true);\r\n  };\r\n\r\n  const handleSubmit = async () => {\r\n    try {\r\n      const values = await form.validateFields();\r\n      const userData = editingId ? { ...values, id: editingId } : values;\r\n\r\n      if (editingId) {\r\n        await userApi.update(userData);\r\n      } else {\r\n        await userApi.create(userData);\r\n      }\r\n\r\n      message.success(`${editingId ? \"更新\" : \"创建\"}成功`);\r\n      setVisible(false);\r\n      fetchUsers();\r\n    } catch (error) {\r\n      console.error(\"提交失败:\", error);\r\n      message.error(\"提交失败\");\r\n    }\r\n  };\r\n\r\n  const handleStatusChange = async (id: number, status: boolean) => {\r\n    try {\r\n      await userApi.updateStatus(id, status ? 1 : 0);\r\n      message.success(\"更新成功\");\r\n      fetchUsers();\r\n    } catch (error) {\r\n      console.error(\"更新状态失败:\", error);\r\n      message.error(\"更新状态失败\");\r\n    }\r\n  };\r\n\r\n  const columns = [\r\n    {\r\n      title: \"ID\",\r\n      dataIndex: \"id\",\r\n      key: \"id\",\r\n    },\r\n    {\r\n      title: \"用户名\",\r\n      dataIndex: \"username\",\r\n      key: \"username\",\r\n    },\r\n    {\r\n      title: \"昵称\",\r\n      dataIndex: \"nickname\",\r\n      key: \"nickname\",\r\n    },\r\n    {\r\n      title: \"手机号\",\r\n      dataIndex: \"phone\",\r\n      key: \"phone\",\r\n    },\r\n    {\r\n      title: \"邮箱\",\r\n      dataIndex: \"email\",\r\n      key: \"email\",\r\n    },\r\n    {\r\n      title: \"状态\",\r\n      dataIndex: \"status\",\r\n      key: \"status\",\r\n      render: (status: number, record: any) => (\r\n        <Switch\r\n          checked={status === 1}\r\n          onChange={(checked) => handleStatusChange(record.id, checked)}\r\n        />\r\n      ),\r\n    },\r\n    {\r\n      title: \"注册时间\",\r\n      dataIndex: \"createTime\",\r\n      key: \"createTime\",\r\n    },\r\n    {\r\n      title: \"操作\",\r\n      key: \"action\",\r\n      render: (text: string, record: any) => (\r\n        <Button type=\"link\" onClick={() => handleEdit(record)}>\r\n          编辑\r\n        </Button>\r\n      ),\r\n    },\r\n  ];\r\n\r\n  return (\r\n    <div className={styles.container}>\r\n      <Card>\r\n        <div className={styles.toolbar}>\r\n          <Button type=\"primary\" icon={<PlusOutlined />} onClick={handleAdd}>\r\n            添加用户\r\n          </Button>\r\n          <Search\r\n            placeholder=\"搜索用户\"\r\n            onSearch={handleSearch}\r\n            style={{ width: 200 }}\r\n          />\r\n        </div>\r\n\r\n        <Table\r\n          columns={columns}\r\n          dataSource={users}\r\n          rowKey=\"id\"\r\n          loading={loading}\r\n          pagination={{\r\n            current: searchParams.pageNum,\r\n            pageSize: searchParams.pageSize,\r\n            total,\r\n            onChange: (page, pageSize) => {\r\n              setSearchParams((prev) => ({ ...prev, pageNum: page, pageSize }));\r\n            },\r\n          }}\r\n        />\r\n      </Card>\r\n\r\n      <Modal\r\n        title={`${editingId ? \"编辑\" : \"添加\"}用户`}\r\n        open={visible}\r\n        onOk={handleSubmit}\r\n        onCancel={() => setVisible(false)}\r\n      >\r\n        <Form form={form} layout=\"vertical\">\r\n          <Form.Item\r\n            name=\"username\"\r\n            label=\"用户名\"\r\n            rules={[{ required: true, message: \"请输入用户名\" }]}\r\n          >\r\n            <Input />\r\n          </Form.Item>\r\n\r\n          {!editingId && (\r\n            <Form.Item\r\n              name=\"password\"\r\n              label=\"密码\"\r\n              rules={[{ required: true, message: \"请输入密码\" }]}\r\n            >\r\n              <Input.Password />\r\n            </Form.Item>\r\n          )}\r\n\r\n          <Form.Item\r\n            name=\"nickname\"\r\n            label=\"昵称\"\r\n            rules={[{ required: true, message: \"请输入昵称\" }]}\r\n          >\r\n            <Input />\r\n          </Form.Item>\r\n\r\n          <Form.Item\r\n            name=\"phone\"\r\n            label=\"手机号\"\r\n            rules={[{ required: true, message: \"请输入手机号\" }]}\r\n          >\r\n            <Input />\r\n          </Form.Item>\r\n\r\n          <Form.Item\r\n            name=\"email\"\r\n            label=\"邮箱\"\r\n            rules={[\r\n              { required: true, message: \"请输入邮箱\" },\r\n              { type: \"email\", message: \"请输入正确的邮箱格式\" },\r\n            ]}\r\n          >\r\n            <Input />\r\n          </Form.Item>\r\n        </Form>\r\n      </Modal>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default User;\r\n",
+      "__content": "import React, { useEffect, useState } from \"react\";\r\nimport {\r\n  Card,\r\n  Table,\r\n  Button,\r\n  Input,\r\n  Modal,\r\n  Form,\r\n  message,\r\n  Switch,\r\n  Tag,\r\n} from \"antd\";\r\nimport { PlusOutlined, SearchOutlined } from \"@ant-design/icons\";\r\nimport { userApi } from \"@/services/api\";\r\nimport styles from \"./index.less\";\r\n\r\nconst { Search } = Input;\r\n\r\nconst User: React.FC = () => {\r\n  const [form] = Form.useForm();\r\n  const [loading, setLoading] = useState(false);\r\n  const [users, setUsers] = useState([]);\r\n  const [total, setTotal] = useState(0);\r\n  const [visible, setVisible] = useState(false);\r\n  const [editingId, setEditingId] = useState<number | null>(null);\r\n  const [searchParams, setSearchParams] = useState({\r\n    pageNum: 1,\r\n    pageSize: 10,\r\n    username: \"\",\r\n  });\r\n\r\n  useEffect(() => {\r\n    fetchUsers();\r\n  }, [searchParams]);\r\n\r\n  const fetchUsers = async () => {\r\n    setLoading(true);\r\n    try {\r\n      const res = await userApi.getList(searchParams);\r\n      setUsers(res.data.list);\r\n      setTotal(res.data.total);\r\n    } catch (error) {\r\n      console.error(\"获取用户列表失败:\", error);\r\n      message.error(\"获取用户列表失败\");\r\n    }\r\n    setLoading(false);\r\n  };\r\n\r\n  const handleSearch = (value: string) => {\r\n    setSearchParams((prev) => ({ ...prev, username: value, pageNum: 1 }));\r\n  };\r\n\r\n  const handleAdd = () => {\r\n    form.resetFields();\r\n    setEditingId(null);\r\n    setVisible(true);\r\n  };\r\n\r\n  const handleEdit = (record: any) => {\r\n    form.setFieldsValue(record);\r\n    setEditingId(record.id);\r\n    setVisible(true);\r\n  };\r\n\r\n  const handleSubmit = async () => {\r\n    try {\r\n      const values = await form.validateFields();\r\n      const userData = editingId ? { ...values, id: editingId } : values;\r\n\r\n      if (editingId) {\r\n        await userApi.update(userData);\r\n      } else {\r\n        await userApi.create(userData);\r\n      }\r\n\r\n      message.success(`${editingId ? \"更新\" : \"创建\"}成功`);\r\n      setVisible(false);\r\n      fetchUsers();\r\n    } catch (error) {\r\n      console.error(\"提交失败:\", error);\r\n      message.error(\"提交失败\");\r\n    }\r\n  };\r\n\r\n  const handleStatusChange = async (id: number, status: boolean) => {\r\n    try {\r\n      await userApi.updateStatus(id, status ? 1 : 0);\r\n      message.success(\"更新成功\");\r\n      fetchUsers();\r\n    } catch (error) {\r\n      console.error(\"更新状态失败:\", error);\r\n      message.error(\"更新状态失败\");\r\n    }\r\n  };\r\n\r\n  const columns = [\r\n    {\r\n      title: \"ID\",\r\n      dataIndex: \"id\",\r\n      key: \"id\",\r\n    },\r\n    {\r\n      title: \"用户名\",\r\n      dataIndex: \"username\",\r\n      key: \"username\",\r\n    },\r\n    {\r\n      title: \"昵称\",\r\n      dataIndex: \"nickname\",\r\n      key: \"nickname\",\r\n    },\r\n    {\r\n      title: \"手机号\",\r\n      dataIndex: \"phone\",\r\n      key: \"phone\",\r\n    },\r\n    {\r\n      title: \"邮箱\",\r\n      dataIndex: \"email\",\r\n      key: \"email\",\r\n    },\r\n    {\r\n      title: \"状态\",\r\n      dataIndex: \"status\",\r\n      key: \"status\",\r\n      render: (status: number, record: any) => (\r\n        <Switch\r\n          checked={status === 1}\r\n          onChange={(checked) => handleStatusChange(record.id, checked)}\r\n        />\r\n      ),\r\n    },\r\n    {\r\n      title: \"注册时间\",\r\n      dataIndex: \"createTime\",\r\n      key: \"createTime\",\r\n    },\r\n    {\r\n      title: \"操作\",\r\n      key: \"action\",\r\n      render: (text: string, record: any) => (\r\n        <Button type=\"link\" onClick={() => handleEdit(record)}>\r\n          编辑\r\n        </Button>\r\n      ),\r\n    },\r\n  ];\r\n\r\n  return (\r\n    <div className={styles.container}>\r\n      <Card>\r\n        <div className={styles.toolbar}>\r\n          <Button type=\"primary\" icon={<PlusOutlined />} onClick={handleAdd}>\r\n            添加用户\r\n          </Button>\r\n          <Search\r\n            placeholder=\"搜索用户\"\r\n            onSearch={handleSearch}\r\n            style={{ width: 200 }}\r\n          />\r\n        </div>\r\n\r\n        <Table\r\n          columns={columns}\r\n          dataSource={users}\r\n          rowKey=\"id\"\r\n          loading={loading}\r\n          pagination={{\r\n            current: searchParams.pageNum,\r\n            pageSize: searchParams.pageSize,\r\n            total,\r\n            onChange: (page, pageSize) => {\r\n              setSearchParams((prev) => ({ ...prev, pageNum: page, pageSize }));\r\n            },\r\n          }}\r\n        />\r\n      </Card>\r\n\r\n      <Modal\r\n        title={`${editingId ? \"编辑\" : \"添加\"}用户`}\r\n        open={visible}\r\n        onOk={handleSubmit}\r\n        onCancel={() => setVisible(false)}\r\n      >\r\n        <Form form={form} layout=\"vertical\">\r\n          <Form.Item\r\n            name=\"username\"\r\n            label=\"用户名\"\r\n            rules={[{ required: true, message: \"请输入用户名\" }]}\r\n          >\r\n            <Input />\r\n          </Form.Item>\r\n\r\n          {!editingId && (\r\n            <Form.Item\r\n              name=\"password\"\r\n              label=\"密码\"\r\n              rules={[{ required: true, message: \"请输入密码\" }]}\r\n            >\r\n              <Input.Password />\r\n            </Form.Item>\r\n          )}\r\n\r\n          <Form.Item name=\"nickname\" label=\"昵称\" rules={[]}>\r\n            <Input />\r\n          </Form.Item>\r\n\r\n          <Form.Item\r\n            name=\"phone\"\r\n            label=\"手机号\"\r\n            rules={[\r\n              {\r\n                pattern: /^$|^1[3-9]\\d{9}$/,\r\n                message: \"请输入正确的手机号\",\r\n              },\r\n            ]}\r\n          >\r\n            <Input />\r\n          </Form.Item>\r\n\r\n          <Form.Item\r\n            name=\"email\"\r\n            label=\"邮箱\"\r\n            rules={[{ type: \"email\", message: \"请输入正确的邮箱格式\" }]}\r\n          >\r\n            <Input />\r\n          </Form.Item>\r\n        </Form>\r\n      </Modal>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default User;\r\n",
       "__isJSFile": true,
       "__absFile": "D:/git-repo-m/javaDemo2/mall-admin/src/pages/user/index.tsx"
     },
@@ -3622,7 +4081,7 @@
       "parentId": "2",
       "id": "12",
       "absPath": "/statistics",
-      "__content": "import React, { useEffect, useState } from \"react\";\r\nimport { Card, Row, Col, DatePicker, Table, Radio, Statistic } from \"antd\";\r\nimport * as echarts from \"echarts\";\r\nimport moment from \"moment\";\r\nimport styles from \"./index.less\";\r\nimport { request } from \"../../services/api\";\r\n\r\nconst { RangePicker } = DatePicker;\r\n\r\nconst Statistics: React.FC = () => {\r\n  const [loading, setLoading] = useState(false);\r\n  const [dateRange, setDateRange] = useState([\r\n    moment().subtract(7, \"days\"),\r\n    moment(),\r\n  ]);\r\n  const [timeUnit, setTimeUnit] = useState(\"day\");\r\n  const [overview, setOverview] = useState<any>({});\r\n  const [salesData, setSalesData] = useState([]);\r\n  const [orderData, setOrderData] = useState([]);\r\n  const [productRanking, setProductRanking] = useState([]);\r\n  const [userRanking, setUserRanking] = useState([]);\r\n\r\n  useEffect(() => {\r\n    fetchOverview();\r\n    fetchSalesData();\r\n    fetchOrderData();\r\n    fetchProductRanking();\r\n    fetchUserRanking();\r\n  }, [dateRange, timeUnit]);\r\n\r\n  const fetchOverview = async () => {\r\n    try {\r\n      const data = await request(\"/api/statistics/overview\");\r\n      setOverview(data.data || {});\r\n    } catch (error) {\r\n      console.error(\"获取概览数据失败:\", error);\r\n    }\r\n  };\r\n\r\n  const fetchSalesData = async () => {\r\n    try {\r\n      const params = new URLSearchParams({\r\n        startTime: dateRange[0].format(\"YYYY-MM-DD\"),\r\n        endTime: dateRange[1].format(\"YYYY-MM-DD\"),\r\n        timeUnit,\r\n      });\r\n      const data = await request(`/api/statistics/sales?${params.toString()}`);\r\n      setSalesData(data.data || []);\r\n      initSalesChart(data.data || []);\r\n    } catch (error) {\r\n      console.error(\"获取销售数据失败:\", error);\r\n    }\r\n  };\r\n\r\n  const fetchOrderData = async () => {\r\n    try {\r\n      const params = new URLSearchParams({\r\n        startTime: dateRange[0].format(\"YYYY-MM-DD\"),\r\n        endTime: dateRange[1].format(\"YYYY-MM-DD\"),\r\n        timeUnit,\r\n      });\r\n      const data = await request(`/api/statistics/orders?${params.toString()}`);\r\n      setOrderData(data.data || []);\r\n      initOrderChart(data.data || []);\r\n    } catch (error) {\r\n      console.error(\"获取订单数据失败:\", error);\r\n    }\r\n  };\r\n\r\n  const fetchProductRanking = async () => {\r\n    try {\r\n      const params = new URLSearchParams({\r\n        startTime: dateRange[0].format(\"YYYY-MM-DD\"),\r\n        endTime: dateRange[1].format(\"YYYY-MM-DD\"),\r\n      });\r\n      const data = await request(\r\n        `/api/statistics/products/ranking?${params.toString()}`\r\n      );\r\n      setProductRanking(data.data || []);\r\n    } catch (error) {\r\n      console.error(\"获取商品排行失败:\", error);\r\n    }\r\n  };\r\n\r\n  const fetchUserRanking = async () => {\r\n    try {\r\n      const params = new URLSearchParams({\r\n        startTime: dateRange[0].format(\"YYYY-MM-DD\"),\r\n        endTime: dateRange[1].format(\"YYYY-MM-DD\"),\r\n      });\r\n      const data = await request(\r\n        `/api/statistics/users/ranking?${params.toString()}`\r\n      );\r\n      setUserRanking(data.data || []);\r\n    } catch (error) {\r\n      console.error(\"获取用户排行失败:\", error);\r\n    }\r\n  };\r\n\r\n  const initSalesChart = (data: any[]) => {\r\n    const chartDom = document.getElementById(\"salesChart\");\r\n    const myChart = echarts.init(chartDom);\r\n\r\n    const option = {\r\n      title: {\r\n        text: \"销售趋势\",\r\n      },\r\n      tooltip: {\r\n        trigger: \"axis\",\r\n      },\r\n      xAxis: {\r\n        type: \"category\",\r\n        data: data.map((item) => item.date),\r\n      },\r\n      yAxis: {\r\n        type: \"value\",\r\n      },\r\n      series: [\r\n        {\r\n          name: \"销售额\",\r\n          type: \"line\",\r\n          data: data.map((item) => item.amount),\r\n          smooth: true,\r\n          areaStyle: {},\r\n        },\r\n      ],\r\n    };\r\n\r\n    myChart.setOption(option);\r\n  };\r\n\r\n  const initOrderChart = (data: any[]) => {\r\n    const chartDom = document.getElementById(\"orderChart\");\r\n    const myChart = echarts.init(chartDom);\r\n\r\n    const option = {\r\n      title: {\r\n        text: \"订单趋势\",\r\n      },\r\n      tooltip: {\r\n        trigger: \"axis\",\r\n      },\r\n      xAxis: {\r\n        type: \"category\",\r\n        data: data.map((item) => item.date),\r\n      },\r\n      yAxis: {\r\n        type: \"value\",\r\n      },\r\n      series: [\r\n        {\r\n          name: \"订单数\",\r\n          type: \"bar\",\r\n          data: data.map((item) => item.count),\r\n        },\r\n      ],\r\n    };\r\n\r\n    myChart.setOption(option);\r\n  };\r\n\r\n  const productColumns = [\r\n    {\r\n      title: \"排名\",\r\n      dataIndex: \"rank\",\r\n      key: \"rank\",\r\n      render: (text: string, record: any, index: number) => index + 1,\r\n    },\r\n    {\r\n      title: \"商品图片\",\r\n      dataIndex: \"picture\",\r\n      key: \"picture\",\r\n      render: (picture: string) => (\r\n        <img src={picture} alt=\"商品图片\" style={{ width: 50, height: 50 }} />\r\n      ),\r\n    },\r\n    {\r\n      title: \"商品名称\",\r\n      dataIndex: \"name\",\r\n      key: \"name\",\r\n    },\r\n    {\r\n      title: \"销量\",\r\n      dataIndex: \"sales\",\r\n      key: \"sales\",\r\n    },\r\n    {\r\n      title: \"销售额\",\r\n      dataIndex: \"amount\",\r\n      key: \"amount\",\r\n      render: (amount: number) => `¥${amount.toFixed(2)}`,\r\n    },\r\n  ];\r\n\r\n  const userColumns = [\r\n    {\r\n      title: \"排名\",\r\n      dataIndex: \"rank\",\r\n      key: \"rank\",\r\n      render: (text: string, record: any, index: number) => index + 1,\r\n    },\r\n    {\r\n      title: \"用户名\",\r\n      dataIndex: \"username\",\r\n      key: \"username\",\r\n    },\r\n    {\r\n      title: \"消费次数\",\r\n      dataIndex: \"orderCount\",\r\n      key: \"orderCount\",\r\n    },\r\n    {\r\n      title: \"消费金额\",\r\n      dataIndex: \"amount\",\r\n      key: \"amount\",\r\n      render: (amount: number) => `¥${amount.toFixed(2)}`,\r\n    },\r\n  ];\r\n\r\n  return (\r\n    <div className={styles.container}>\r\n      <Row gutter={24}>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"今日销售额\"\r\n              value={overview.todaySales || 0}\r\n              prefix=\"¥\"\r\n              precision={2}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic title=\"今日订单数\" value={overview.todayOrders || 0} />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic title=\"今日新增用户\" value={overview.todayUsers || 0} />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"转化率\"\r\n              value={overview.conversionRate || 0}\r\n              suffix=\"%\"\r\n              precision={2}\r\n            />\r\n          </Card>\r\n        </Col>\r\n      </Row>\r\n\r\n      <Card className={styles.chart}>\r\n        <div className={styles.toolbar}>\r\n          <Radio.Group\r\n            value={timeUnit}\r\n            onChange={(e) => setTimeUnit(e.target.value)}\r\n          >\r\n            <Radio.Button value=\"hour\">按小时</Radio.Button>\r\n            <Radio.Button value=\"day\">按天</Radio.Button>\r\n            <Radio.Button value=\"month\">按月</Radio.Button>\r\n          </Radio.Group>\r\n          <RangePicker\r\n            value={dateRange as any}\r\n            onChange={(dates) => setDateRange(dates as any)}\r\n          />\r\n        </div>\r\n        <Row gutter={24}>\r\n          <Col span={12}>\r\n            <div id=\"salesChart\" className={styles.chartItem} />\r\n          </Col>\r\n          <Col span={12}>\r\n            <div id=\"orderChart\" className={styles.chartItem} />\r\n          </Col>\r\n        </Row>\r\n      </Card>\r\n\r\n      <Row gutter={24}>\r\n        <Col span={12}>\r\n          <Card title=\"商品销售排行\">\r\n            <Table\r\n              columns={productColumns}\r\n              dataSource={productRanking}\r\n              rowKey=\"id\"\r\n              pagination={false}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={12}>\r\n          <Card title=\"用户消费排行\">\r\n            <Table\r\n              columns={userColumns}\r\n              dataSource={userRanking}\r\n              rowKey=\"id\"\r\n              pagination={false}\r\n            />\r\n          </Card>\r\n        </Col>\r\n      </Row>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Statistics;\r\n",
+      "__content": "import React, { useEffect, useState } from \"react\";\r\nimport { Card, Row, Col, DatePicker, Table, Radio, Statistic } from \"antd\";\r\nimport * as echarts from \"echarts\";\r\nimport moment from \"moment\";\r\nimport styles from \"./index.less\";\r\nimport { statisticsApi } from \"../../services/api\";\r\n\r\nconst { RangePicker } = DatePicker;\r\n\r\nconst Statistics: React.FC = () => {\r\n  const [loading, setLoading] = useState(false);\r\n  const [dateRange, setDateRange] = useState([\r\n    moment().subtract(7, \"days\"),\r\n    moment(),\r\n  ]);\r\n  const [timeUnit, setTimeUnit] = useState(\"day\");\r\n  const [overview, setOverview] = useState<any>({});\r\n  const [salesData, setSalesData] = useState([]);\r\n  const [orderData, setOrderData] = useState([]);\r\n  const [productRanking, setProductRanking] = useState([]);\r\n  const [userRanking, setUserRanking] = useState([]);\r\n\r\n  useEffect(() => {\r\n    fetchOverview();\r\n    fetchSalesData();\r\n    fetchOrderData();\r\n    fetchProductRanking();\r\n    fetchUserRanking();\r\n  }, [dateRange, timeUnit]);\r\n\r\n  const fetchOverview = async () => {\r\n    const res = await statisticsApi.getOverview();\r\n    setOverview(res.data || {});\r\n  };\r\n\r\n  const fetchSalesData = async () => {\r\n    try {\r\n      const data = await statisticsApi.getSales({\r\n        startTime: dateRange[0].format(\"YYYY-MM-DD\"),\r\n        endTime: dateRange[1].format(\"YYYY-MM-DD\"),\r\n        timeUnit,\r\n      });\r\n      setSalesData(data.data || []);\r\n      initSalesChart(data.data || []);\r\n    } catch (error) {\r\n      console.error(\"获取销售数据失败:\", error);\r\n    }\r\n  };\r\n\r\n  const fetchOrderData = async () => {\r\n    try {\r\n      const data = await statisticsApi.getOrders({\r\n        startTime: dateRange[0].format(\"YYYY-MM-DD\"),\r\n        endTime: dateRange[1].format(\"YYYY-MM-DD\"),\r\n        timeUnit,\r\n      });\r\n      setOrderData(data.data || []);\r\n      initOrderChart(data.data || []);\r\n    } catch (error) {\r\n      console.error(\"获取订单数据失败:\", error);\r\n    }\r\n  };\r\n\r\n  const fetchProductRanking = async () => {\r\n    try {\r\n      const data = await statisticsApi.getProductRanking({\r\n        startTime: dateRange[0].format(\"YYYY-MM-DD\"),\r\n        endTime: dateRange[1].format(\"YYYY-MM-DD\"),\r\n      });\r\n      setProductRanking(data.data || []);\r\n    } catch (error) {\r\n      console.error(\"获取商品排行失败:\", error);\r\n    }\r\n  };\r\n\r\n  const fetchUserRanking = async () => {\r\n    try {\r\n      const data = await statisticsApi.getUserRanking({\r\n        startTime: dateRange[0].format(\"YYYY-MM-DD\"),\r\n        endTime: dateRange[1].format(\"YYYY-MM-DD\"),\r\n      });\r\n      setUserRanking(data.data || []);\r\n    } catch (error) {\r\n      console.error(\"获取用户排行失败:\", error);\r\n    }\r\n  };\r\n\r\n  const initSalesChart = (data: any[]) => {\r\n    const chartDom = document.getElementById(\"salesChart\");\r\n    const myChart = echarts.init(chartDom);\r\n\r\n    const option = {\r\n      title: {\r\n        text: \"销售趋势\",\r\n      },\r\n      tooltip: {\r\n        trigger: \"axis\",\r\n      },\r\n      xAxis: {\r\n        type: \"category\",\r\n        data: data.map((item) => item.date),\r\n      },\r\n      yAxis: {\r\n        type: \"value\",\r\n      },\r\n      series: [\r\n        {\r\n          name: \"销售额\",\r\n          type: \"line\",\r\n          data: data.map((item) => item.amount),\r\n          smooth: true,\r\n          areaStyle: {},\r\n        },\r\n      ],\r\n    };\r\n\r\n    myChart.setOption(option);\r\n  };\r\n\r\n  const initOrderChart = (data: any[]) => {\r\n    const chartDom = document.getElementById(\"orderChart\");\r\n    const myChart = echarts.init(chartDom);\r\n\r\n    const option = {\r\n      title: {\r\n        text: \"订单趋势\",\r\n      },\r\n      tooltip: {\r\n        trigger: \"axis\",\r\n      },\r\n      xAxis: {\r\n        type: \"category\",\r\n        data: data.map((item) => item.date),\r\n      },\r\n      yAxis: {\r\n        type: \"value\",\r\n      },\r\n      series: [\r\n        {\r\n          name: \"订单数\",\r\n          type: \"bar\",\r\n          data: data.map((item) => item.count),\r\n        },\r\n      ],\r\n    };\r\n\r\n    myChart.setOption(option);\r\n  };\r\n\r\n  const productColumns = [\r\n    {\r\n      title: \"排名\",\r\n      dataIndex: \"rank\",\r\n      key: \"rank\",\r\n      render: (text: string, record: any, index: number) => index + 1,\r\n    },\r\n    {\r\n      title: \"商品图片\",\r\n      dataIndex: \"picture\",\r\n      key: \"picture\",\r\n      render: (picture: string) => (\r\n        <img src={picture} alt=\"商品图片\" style={{ width: 50, height: 50 }} />\r\n      ),\r\n    },\r\n    {\r\n      title: \"商品名称\",\r\n      dataIndex: \"name\",\r\n      key: \"name\",\r\n    },\r\n    {\r\n      title: \"销量\",\r\n      dataIndex: \"sales\",\r\n      key: \"sales\",\r\n    },\r\n    {\r\n      title: \"销售额\",\r\n      dataIndex: \"amount\",\r\n      key: \"amount\",\r\n      render: (amount: number) => `¥${amount.toFixed(2)}`,\r\n    },\r\n  ];\r\n\r\n  const userColumns = [\r\n    {\r\n      title: \"排名\",\r\n      dataIndex: \"rank\",\r\n      key: \"rank\",\r\n      render: (text: string, record: any, index: number) => index + 1,\r\n    },\r\n    {\r\n      title: \"用户名\",\r\n      dataIndex: \"username\",\r\n      key: \"username\",\r\n    },\r\n    {\r\n      title: \"消费次数\",\r\n      dataIndex: \"orderCount\",\r\n      key: \"orderCount\",\r\n    },\r\n    {\r\n      title: \"消费金额\",\r\n      dataIndex: \"amount\",\r\n      key: \"amount\",\r\n      render: (amount: number) => `¥${amount.toFixed(2)}`,\r\n    },\r\n  ];\r\n\r\n  return (\r\n    <div className={styles.container}>\r\n      <Row gutter={24}>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"今日销售额\"\r\n              value={overview.todaySales || 0}\r\n              prefix=\"¥\"\r\n              precision={2}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic title=\"今日订单数\" value={overview.todayOrders || 0} />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic title=\"今日新增用户\" value={overview.todayUsers || 0} />\r\n          </Card>\r\n        </Col>\r\n        <Col span={6}>\r\n          <Card>\r\n            <Statistic\r\n              title=\"转化率\"\r\n              value={overview.conversionRate || 0}\r\n              suffix=\"%\"\r\n              precision={2}\r\n            />\r\n          </Card>\r\n        </Col>\r\n      </Row>\r\n\r\n      <Card className={styles.chart}>\r\n        <div className={styles.toolbar}>\r\n          <Radio.Group\r\n            value={timeUnit}\r\n            onChange={(e) => setTimeUnit(e.target.value)}\r\n          >\r\n            <Radio.Button value=\"hour\">按小时</Radio.Button>\r\n            <Radio.Button value=\"day\">按天</Radio.Button>\r\n            <Radio.Button value=\"month\">按月</Radio.Button>\r\n          </Radio.Group>\r\n          <RangePicker\r\n            value={dateRange as any}\r\n            onChange={(dates) => setDateRange(dates as any)}\r\n          />\r\n        </div>\r\n        <Row gutter={24}>\r\n          <Col span={12}>\r\n            <div id=\"salesChart\" className={styles.chartItem} />\r\n          </Col>\r\n          <Col span={12}>\r\n            <div id=\"orderChart\" className={styles.chartItem} />\r\n          </Col>\r\n        </Row>\r\n      </Card>\r\n\r\n      <Row gutter={24}>\r\n        <Col span={12}>\r\n          <Card title=\"商品销售排行\">\r\n            <Table\r\n              columns={productColumns}\r\n              dataSource={productRanking}\r\n              rowKey=\"id\"\r\n              pagination={false}\r\n            />\r\n          </Card>\r\n        </Col>\r\n        <Col span={12}>\r\n          <Card title=\"用户消费排行\">\r\n            <Table\r\n              columns={userColumns}\r\n              dataSource={userRanking}\r\n              rowKey=\"id\"\r\n              pagination={false}\r\n            />\r\n          </Card>\r\n        </Col>\r\n      </Row>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Statistics;\r\n",
       "__isJSFile": true,
       "__absFile": "D:/git-repo-m/javaDemo2/mall-admin/src/pages/statistics/index.tsx"
     }
@@ -5036,7 +5495,7 @@
             "format": "esm"
           },
           "src/services/api.ts": {
-            "bytes": 14908,
+            "bytes": 16493,
             "imports": [
               {
                 "path": "antd",
@@ -5135,7 +5594,7 @@
             "format": "esm"
           },
           "src/pages/dashboard/index.tsx": {
-            "bytes": 3929,
+            "bytes": 7658,
             "imports": [
               {
                 "path": "react",
@@ -5163,15 +5622,20 @@
                 "external": true
               },
               {
+                "path": "moment",
+                "kind": "import-statement",
+                "external": true
+              },
+              {
                 "path": "src/services/api.ts",
                 "kind": "import-statement",
-                "original": "@/services/api"
+                "original": "../../services/api"
               }
             ],
             "format": "esm"
           },
           "src/pages/user/index.tsx": {
-            "bytes": 5928,
+            "bytes": 5840,
             "imports": [
               {
                 "path": "react",
@@ -5398,7 +5862,7 @@
             "format": "esm"
           },
           "src/pages/statistics/index.tsx": {
-            "bytes": 8240,
+            "bytes": 7797,
             "imports": [
               {
                 "path": "react",
@@ -5711,6 +6175,11 @@
               },
               {
                 "path": "./index.less",
+                "kind": "import-statement",
+                "external": true
+              },
+              {
+                "path": "moment",
                 "kind": "import-statement",
                 "external": true
               },
@@ -7018,7 +7487,7 @@
                 "bytesInOutput": 3369
               },
               "src/services/api.ts": {
-                "bytesInOutput": 10286
+                "bytesInOutput": 11730
               },
               "src/pages/login/index.tsx": {
                 "bytesInOutput": 1983
@@ -7030,10 +7499,10 @@
                 "bytesInOutput": 381
               },
               "src/pages/dashboard/index.tsx": {
-                "bytesInOutput": 5175
+                "bytesInOutput": 8967
               },
               "src/pages/user/index.tsx": {
-                "bytesInOutput": 7346
+                "bytesInOutput": 7210
               },
               "src/pages/product/index.tsx": {
                 "bytesInOutput": 10075
@@ -7045,7 +7514,7 @@
                 "bytesInOutput": 10758
               },
               "src/pages/marketing/index.tsx": {
-                "bytesInOutput": 9590
+                "bytesInOutput": 9625
               },
               "src/pages/coupon/index.tsx": {
                 "bytesInOutput": 10599
@@ -7054,7 +7523,7 @@
                 "bytesInOutput": 8703
               },
               "src/pages/statistics/index.tsx": {
-                "bytesInOutput": 10136
+                "bytesInOutput": 9622
               },
               "src/.umi/core/route.tsx": {
                 "bytesInOutput": 2060
@@ -7066,7 +7535,7 @@
                 "bytesInOutput": 2006
               }
             },
-            "bytes": 152841
+            "bytes": 157462
           }
         }
       }
@@ -10337,7 +10806,7 @@
           "type": "ImportDeclaration"
         },
         {
-          "end": 103,
+          "end": 122,
           "importKind": "value",
           "source": "antd",
           "specifiers": [
@@ -10360,13 +10829,23 @@
               "imported": "Statistic",
               "local": "Statistic",
               "type": "ImportSpecifier"
+            },
+            {
+              "imported": "DatePicker",
+              "local": "DatePicker",
+              "type": "ImportSpecifier"
+            },
+            {
+              "imported": "Table",
+              "local": "Table",
+              "type": "ImportSpecifier"
             }
           ],
           "start": 54,
           "type": "ImportDeclaration"
         },
         {
-          "end": 224,
+          "end": 243,
           "importKind": "value",
           "source": "@ant-design/icons",
           "specifiers": [
@@ -10391,11 +10870,11 @@
               "type": "ImportSpecifier"
             }
           ],
-          "start": 105,
+          "start": 124,
           "type": "ImportDeclaration"
         },
         {
-          "end": 261,
+          "end": 280,
           "importKind": "value",
           "source": "echarts",
           "specifiers": [
@@ -10404,11 +10883,11 @@
               "type": "ImportNamespaceSpecifier"
             }
           ],
-          "start": 226,
+          "start": 245,
           "type": "ImportDeclaration"
         },
         {
-          "end": 297,
+          "end": 316,
           "importKind": "value",
           "source": "./index.less",
           "specifiers": [
@@ -10417,21 +10896,39 @@
               "type": "ImportDefaultSpecifier"
             }
           ],
-          "start": 263,
+          "start": 282,
           "type": "ImportDeclaration"
         },
         {
-          "end": 340,
+          "end": 346,
           "importKind": "value",
-          "source": "@/services/api",
+          "source": "moment",
           "specifiers": [
             {
-              "imported": "request",
-              "local": "request",
+              "local": "moment",
+              "type": "ImportDefaultSpecifier"
+            }
+          ],
+          "start": 318,
+          "type": "ImportDeclaration"
+        },
+        {
+          "end": 409,
+          "importKind": "value",
+          "source": "../../services/api",
+          "specifiers": [
+            {
+              "imported": "statisticsApi",
+              "local": "statisticsApi",
+              "type": "ImportSpecifier"
+            },
+            {
+              "imported": "orderApi",
+              "local": "orderApi",
               "type": "ImportSpecifier"
             }
           ],
-          "start": 299,
+          "start": 348,
           "type": "ImportDeclaration"
         }
       ],
@@ -11190,13 +11687,13 @@
           "type": "ImportDeclaration"
         },
         {
-          "end": 279,
+          "end": 285,
           "importKind": "value",
           "source": "../../services/api",
           "specifiers": [
             {
-              "imported": "request",
-              "local": "request",
+              "imported": "statisticsApi",
+              "local": "statisticsApi",
               "type": "ImportSpecifier"
             }
           ],

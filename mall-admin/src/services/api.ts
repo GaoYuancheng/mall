@@ -32,6 +32,7 @@ export const request = async (url: string, options: RequestInit = {}) => {
   }
 
   const res = await response.json();
+  console.log("🚀 ~ request ~ res:", res);
 
   if (res?.code !== 200) {
     message.error(res?.message);
@@ -565,6 +566,62 @@ export const uploadApi = {
       },
       body: formData,
     });
+  },
+};
+
+// 统计服务 API
+export const statisticsApi = {
+  // 概览数据
+  getOverview: () => {
+    return request("/api/statistics/overview");
+  },
+
+  // 销售趋势
+  getSales: (params: {
+    startTime: string;
+    endTime: string;
+    timeUnit: string;
+  }) => {
+    const searchParams = new URLSearchParams({
+      startTime: params.startTime,
+      endTime: params.endTime,
+      timeUnit: params.timeUnit,
+    });
+    return request(`/api/statistics/sales?${searchParams.toString()}`);
+  },
+
+  // 订单趋势
+  getOrders: (params: {
+    startTime: string;
+    endTime: string;
+    timeUnit: string;
+  }) => {
+    const searchParams = new URLSearchParams({
+      startTime: params.startTime,
+      endTime: params.endTime,
+      timeUnit: params.timeUnit,
+    });
+    return request(`/api/statistics/orders?${searchParams.toString()}`);
+  },
+
+  // 商品销售排行
+  getProductRanking: (params: { startTime: string; endTime: string }) => {
+    const searchParams = new URLSearchParams({
+      startTime: params.startTime,
+      endTime: params.endTime,
+    });
+    return request(
+      `/api/statistics/products/ranking?${searchParams.toString()}`
+    );
+  },
+
+  // 用户消费排行
+  getUserRanking: (params: { startTime: string; endTime: string }) => {
+    const searchParams = new URLSearchParams({
+      startTime: params.startTime,
+      endTime: params.endTime,
+    });
+    return request(`/api/statistics/users/ranking?${searchParams.toString()}`);
   },
 };
 

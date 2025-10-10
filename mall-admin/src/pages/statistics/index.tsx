@@ -3,7 +3,7 @@ import { Card, Row, Col, DatePicker, Table, Radio, Statistic } from "antd";
 import * as echarts from "echarts";
 import moment from "moment";
 import styles from "./index.less";
-import { request } from "../../services/api";
+import { statisticsApi } from "../../services/api";
 
 const { RangePicker } = DatePicker;
 
@@ -29,22 +29,17 @@ const Statistics: React.FC = () => {
   }, [dateRange, timeUnit]);
 
   const fetchOverview = async () => {
-    try {
-      const data = await request("/api/statistics/overview");
-      setOverview(data.data || {});
-    } catch (error) {
-      console.error("获取概览数据失败:", error);
-    }
+    const res = await statisticsApi.getOverview();
+    setOverview(res.data || {});
   };
 
   const fetchSalesData = async () => {
     try {
-      const params = new URLSearchParams({
+      const data = await statisticsApi.getSales({
         startTime: dateRange[0].format("YYYY-MM-DD"),
         endTime: dateRange[1].format("YYYY-MM-DD"),
         timeUnit,
       });
-      const data = await request(`/api/statistics/sales?${params.toString()}`);
       setSalesData(data.data || []);
       initSalesChart(data.data || []);
     } catch (error) {
@@ -54,12 +49,11 @@ const Statistics: React.FC = () => {
 
   const fetchOrderData = async () => {
     try {
-      const params = new URLSearchParams({
+      const data = await statisticsApi.getOrders({
         startTime: dateRange[0].format("YYYY-MM-DD"),
         endTime: dateRange[1].format("YYYY-MM-DD"),
         timeUnit,
       });
-      const data = await request(`/api/statistics/orders?${params.toString()}`);
       setOrderData(data.data || []);
       initOrderChart(data.data || []);
     } catch (error) {
@@ -69,13 +63,10 @@ const Statistics: React.FC = () => {
 
   const fetchProductRanking = async () => {
     try {
-      const params = new URLSearchParams({
+      const data = await statisticsApi.getProductRanking({
         startTime: dateRange[0].format("YYYY-MM-DD"),
         endTime: dateRange[1].format("YYYY-MM-DD"),
       });
-      const data = await request(
-        `/api/statistics/products/ranking?${params.toString()}`
-      );
       setProductRanking(data.data || []);
     } catch (error) {
       console.error("获取商品排行失败:", error);
@@ -84,13 +75,10 @@ const Statistics: React.FC = () => {
 
   const fetchUserRanking = async () => {
     try {
-      const params = new URLSearchParams({
+      const data = await statisticsApi.getUserRanking({
         startTime: dateRange[0].format("YYYY-MM-DD"),
         endTime: dateRange[1].format("YYYY-MM-DD"),
       });
-      const data = await request(
-        `/api/statistics/users/ranking?${params.toString()}`
-      );
       setUserRanking(data.data || []);
     } catch (error) {
       console.error("获取用户排行失败:", error);
