@@ -193,6 +193,66 @@ export const productApi = {
       body: JSON.stringify({ id, status }),
     });
   },
+
+  // 更新商品审批状态
+  updateApprovalStatus: (id: number, approvalStatus: number) => {
+    return request("/api/product/updateApprovalStatus", {
+      method: "PUT",
+      body: JSON.stringify({ id, approvalStatus }),
+    });
+  },
+
+  // 审批：提交商品审批
+  submitApproval: (
+    productId: number,
+    submitterId?: number,
+    approverId?: number,
+    remark?: string
+  ) => {
+    const searchParams = new URLSearchParams({
+      productId: String(productId),
+      ...(submitterId ? { submitterId: String(submitterId) } : {}),
+      ...(approverId ? { approverId: String(approverId) } : {}),
+      ...(remark ? { remark } : {}),
+    });
+    return request(`/api/product/approval/submit?${searchParams.toString()}`, {
+      method: "POST",
+    });
+  },
+
+  // 审批：通过
+  approve: (taskId: number, approverId?: number, remark?: string) => {
+    const searchParams = new URLSearchParams({
+      taskId: String(taskId),
+      ...(approverId ? { approverId: String(approverId) } : {}),
+      ...(remark ? { remark } : {}),
+    });
+    return request(`/api/product/approval/approve?${searchParams.toString()}`, {
+      method: "POST",
+    });
+  },
+
+  // 审批：拒绝
+  reject: (taskId: number, approverId?: number, remark?: string) => {
+    const searchParams = new URLSearchParams({
+      taskId: String(taskId),
+      ...(approverId ? { approverId: String(approverId) } : {}),
+      ...(remark ? { remark } : {}),
+    });
+    return request(`/api/product/approval/reject?${searchParams.toString()}`, {
+      method: "POST",
+    });
+  },
+
+  // 审批：查询日志
+  getApprovalLogs: (productId: number) => {
+    return request(`/api/product/approval/logs/${productId}`);
+  },
+
+  // 审批：根据商品查询待审批任务
+  getPendingApprovalTask: (productId: number) => {
+    return request(`/api/product/approval/pending/${productId}`);
+  },
 };
 
 // 分类服务 API

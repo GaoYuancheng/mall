@@ -4,8 +4,11 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.mall.monolith.dto.ProductVO;
 import com.mall.monolith.mapper.ProductMapper;
+import com.mall.monolith.mapper.ProductApprovalTaskMapper;
+import com.mall.monolith.mapper.ProductApprovalLogMapper;
 import com.mall.monolith.model.Product;
 import com.mall.monolith.service.ProductService;
+import com.mall.monolith.service.ProductApprovalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,15 +28,23 @@ public class ProductServiceImpl implements ProductService {
     
     @Autowired
     private ProductMapper productMapper;
+    @Autowired
+    private ProductApprovalTaskMapper productApprovalTaskMapper;
+    @Autowired
+    private ProductApprovalLogMapper productApprovalLogMapper;
+    @Autowired
+    private ProductApprovalService productApprovalService;
     
     /**
      * 创建商品
      * 
      * @param product 商品信息
+     * @param submitterId 提交人ID
+     * @param approverId 审批人ID
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void createProduct(Product product) {
+    public void createProduct(Product product, Long submitterId, Long approverId) {
         // 设置创建时间和更新时间
         LocalDateTime now = LocalDateTime.now();
         product.setCreateTime(now);
@@ -49,8 +60,14 @@ public class ProductServiceImpl implements ProductService {
         if (product.getSales() == null) {
             product.setSales(0); // 默认销量为0
         }
+        // 强制初始化为待审批
+        product.setApprovalStatus(0);
         
+        // 插入商品
         productMapper.insert(product);
+        
+        // 自动启动审批流程
+        productApprovalService.submitApproval(product.getId(), submitterId, approverId, "商品创建，自动提交审批");
     }
     
     /**
@@ -61,9 +78,39 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void updateProduct(Product product) {
-        // 更新修改时间
+        if (product.getId() == null) {
+            throw new IllegalArgumentException("商品ID不能为空");
+        }
+        Product db = productMapper.selectById(product.getId());
+        if (db == null) {
+            throw new IllegalArgumentException("商品不存在");
+        }
+        // 仅已拒绝(2)的商品允许编辑
+        if (db.getApprovalStatus() == null || db.getApprovalStatus() != 2) {
+            throw new IllegalStateException("仅已拒绝的商品可编辑");
+        }
+        // 保存后置为待审批
+        product.setApprovalStatus(0);
         product.setUpdateTime(LocalDateTime.now());
         productMapper.updateById(product);
+
+        // 若无待审批任务，则自动发起新的审批任务，默认沿用上一次审批人
+        com.mall.monolith.model.ProductApprovalTask pending = productApprovalTaskMapper.selectOne(
+                new com.baomidou.mybatisplus.core.conditions.query.QueryWrapper<com.mall.monolith.model.ProductApprovalTask>()
+                        .eq("product_id", product.getId())
+                        .eq("status", 0)
+        );
+        if (pending == null) {
+            com.mall.monolith.model.ProductApprovalTask lastTask = productApprovalTaskMapper.selectOne(
+                    new com.baomidou.mybatisplus.core.conditions.query.QueryWrapper<com.mall.monolith.model.ProductApprovalTask>()
+                            .eq("product_id", product.getId())
+                            .orderByDesc("id")
+                            .last("limit 1")
+            );
+            Long lastApproverId = lastTask != null ? lastTask.getApproverId() : null;
+            // 提交人ID可为空（由后端记录为空），审批人沿用上次，如为空则由有权限者审批
+            productApprovalService.submitApproval(product.getId(), null, lastApproverId, "商品编辑，自动提交审批");
+        }
     }
     
     /**
@@ -74,7 +121,21 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void deleteProduct(Long id) {
+        Product db = productMapper.selectById(id);
+        if (db == null) {
+            return;
+        }
+        Integer approvalStatus = db.getApprovalStatus();
+        if (approvalStatus == null || (approvalStatus != 1 && approvalStatus != 2)) {
+            throw new IllegalStateException("仅审批通过或已拒绝的商品可删除");
+        }
+        // 删除商品
         productMapper.deleteById(id);
+        // 清理关联审批任务与日志
+        productApprovalTaskMapper.delete(new com.baomidou.mybatisplus.core.conditions.query.QueryWrapper<com.mall.monolith.model.ProductApprovalTask>()
+                .eq("product_id", id));
+        productApprovalLogMapper.delete(new com.baomidou.mybatisplus.core.conditions.query.QueryWrapper<com.mall.monolith.model.ProductApprovalLog>()
+                .eq("product_id", id));
     }
     
     /**
@@ -153,6 +214,22 @@ public class ProductServiceImpl implements ProductService {
         Product product = new Product();
         product.setId(id);
         product.setStatus(status);
+        product.setUpdateTime(LocalDateTime.now());
+        productMapper.updateById(product);
+    }
+
+    /**
+     * 更新商品审批状态
+     *
+     * @param id 商品ID
+     * @param approvalStatus 审批状态（0-待审批，1-已通过，2-已拒绝）
+     */
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void updateApprovalStatus(Long id, Integer approvalStatus) {
+        Product product = new Product();
+        product.setId(id);
+        product.setApprovalStatus(approvalStatus);
         product.setUpdateTime(LocalDateTime.now());
         productMapper.updateById(product);
     }

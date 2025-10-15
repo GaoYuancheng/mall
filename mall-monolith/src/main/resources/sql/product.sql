@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `product` (
     `price` decimal(10,2) NOT NULL COMMENT '商品价格',
     `stock` int(11) DEFAULT 0 COMMENT '库存数量',
     `status` int(1) DEFAULT 1 COMMENT '商品状态：0-下架，1-上架',
+    `approval_status` tinyint(1) DEFAULT 0 COMMENT '审批状态：0-待审批，1-已通过，2-已拒绝',
     `description` text COMMENT '商品描述',
     `picture` varchar(500) DEFAULT NULL COMMENT '商品图片URL',
     `sales` int(11) DEFAULT 0 COMMENT '销量',
@@ -16,6 +17,7 @@ CREATE TABLE IF NOT EXISTS `product` (
     PRIMARY KEY (`id`),
     KEY `idx_category_id` (`category_id`),
     KEY `idx_status` (`status`),
+    KEY `idx_approval_status` (`approval_status`),
     KEY `idx_create_time` (`create_time`),
     KEY `idx_sales` (`sales`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品表';
@@ -122,6 +124,9 @@ INSERT INTO `product` (`name`, `subtitle`, `category_id`, `brand_name`, `price`,
 
 -- 更新部分商品为下架状态（测试用）
 UPDATE `product` SET `status` = 0 WHERE `id` IN (3, 7);
+
+-- 更新除id为23之外的所有商品为审批完成状态
+UPDATE `product` SET `approval_status` = 1 WHERE `id` != 23;
 
 -- 查询统计
 SELECT 

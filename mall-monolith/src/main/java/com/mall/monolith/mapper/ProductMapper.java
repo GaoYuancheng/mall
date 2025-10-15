@@ -40,26 +40,38 @@ public interface ProductMapper extends BaseMapper<Product> {
     int updateStockWithCheck(@Param("id") Long id, @Param("count") Integer count);
     
     /**
-     * 根据ID查询商品详情（包含分类名称）
+     * 根据ID查询商品详情（包含分类名称和审批状态中文描述）
      * 
      * @param id 商品ID
      * @return 商品视图对象
      */
-    @Select("SELECT p.*, c.name as category_name " +
+    @Select("SELECT p.*, c.name as category_name, " +
+            "CASE p.approval_status " +
+            "  WHEN 0 THEN '待审批' " +
+            "  WHEN 1 THEN '已通过' " +
+            "  WHEN 2 THEN '已拒绝' " +
+            "  ELSE '未知状态' " +
+            "END as approval_status_text " +
             "FROM product p " +
             "LEFT JOIN category c ON p.category_id = c.id " +
             "WHERE p.id = #{id}")
     ProductVO selectProductVOById(@Param("id") Long id);
     
     /**
-     * 分页查询商品列表（包含分类名称）
+     * 分页查询商品列表（包含分类名称和审批状态中文描述）
      * 
      * @param page 分页对象
      * @param keyword 关键词
      * @return 商品视图对象分页结果
      */
     @Select("<script>" +
-            "SELECT p.*, c.name as category_name " +
+            "SELECT p.*, c.name as category_name, " +
+            "CASE p.approval_status " +
+            "  WHEN 0 THEN '待审批' " +
+            "  WHEN 1 THEN '已通过' " +
+            "  WHEN 2 THEN '已拒绝' " +
+            "  ELSE '未知状态' " +
+            "END as approval_status_text " +
             "FROM product p " +
             "LEFT JOIN category c ON p.category_id = c.id " +
             "<where>" +

@@ -59,6 +59,15 @@ public class ProductVO {
      * 商品状态：0-下架，1-上架
      */
     private Integer status;
+    /**
+     * 审批状态：0-待审批，1-已通过，2-已拒绝
+     */
+    private Integer approvalStatus;
+    
+    /**
+     * 审批状态中文描述
+     */
+    private String approvalStatusText;
     
     /**
      * 商品描述

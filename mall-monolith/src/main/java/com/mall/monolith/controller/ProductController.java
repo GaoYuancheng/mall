@@ -3,6 +3,8 @@ package com.mall.monolith.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.mall.common.api.CommonResult;
 import com.mall.monolith.dto.ProductStatusUpdateRequest;
+import com.mall.monolith.dto.ProductApprovalUpdateRequest;
+import com.mall.monolith.dto.ProductCreateRequest;
 import com.mall.monolith.dto.ProductVO;
 import com.mall.monolith.model.Product;
 import com.mall.monolith.service.ProductService;
@@ -21,9 +23,9 @@ public class ProductController {
 
     @Operation(summary = "创建商品")
     @PostMapping("/create")
-    public CommonResult<String> createProduct(@Validated @RequestBody Product product) {
-        productService.createProduct(product);
-        return CommonResult.success("创建成功");
+    public CommonResult<String> createProduct(@Validated @RequestBody ProductCreateRequest request) {
+        productService.createProduct(request.getProduct(), request.getSubmitterId(), request.getApproverId());
+        return CommonResult.success("创建成功，已自动提交审批");
     }
 
     @Operation(summary = "更新商品")
@@ -77,6 +79,13 @@ public class ProductController {
     @PutMapping("/updateStatus")
     public CommonResult<String> updateProductStatus(@RequestBody ProductStatusUpdateRequest request) {
         productService.updateStatus(request.getId(), request.getStatus());
+        return CommonResult.success("更新成功");
+    }
+
+    @Operation(summary = "更新商品审批状态")
+    @PutMapping("/updateApprovalStatus")
+    public CommonResult<String> updateProductApprovalStatus(@RequestBody ProductApprovalUpdateRequest request) {
+        productService.updateApprovalStatus(request.getId(), request.getApprovalStatus());
         return CommonResult.success("更新成功");
     }
 }

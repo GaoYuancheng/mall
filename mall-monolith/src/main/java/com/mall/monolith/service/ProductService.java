@@ -5,7 +5,7 @@ import com.mall.monolith.dto.ProductVO;
 import com.mall.monolith.model.Product;
 
 public interface ProductService {
-    void createProduct(Product product);
+    void createProduct(Product product, Long submitterId, Long approverId);
     void updateProduct(Product product);
     void deleteProduct(Long id);
     ProductVO getProduct(Long id);
@@ -13,4 +13,5 @@ public interface ProductService {
     boolean updateStock(Long id, Integer count);
     void batchUpdateStock(Long[] productIds, Integer[] counts);
     void updateStatus(Long id, Integer status);
+    void updateApprovalStatus(Long id, Integer approvalStatus);
 }
