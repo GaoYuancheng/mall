@@ -195,11 +195,47 @@ export const productApi = {
   },
 };
 
-// 分类服务 API - 基础版本
+// 分类服务 API
 export const categoryApi = {
   // 获取分类列表
   getList: () => {
     return request("/api/category/list");
+  },
+
+  // 获取分类详情
+  getDetail: (id: number) => {
+    return request(`/api/category/${id}`);
+  },
+
+  // 创建分类
+  create: (categoryData: any) => {
+    return request("/api/category/create", {
+      method: "POST",
+      body: JSON.stringify(categoryData),
+    });
+  },
+
+  // 更新分类
+  update: (categoryData: any) => {
+    return request("/api/category/update", {
+      method: "PUT",
+      body: JSON.stringify(categoryData),
+    });
+  },
+
+  // 删除分类
+  delete: (id: number) => {
+    return request(`/api/category/delete/${id}`, {
+      method: "DELETE",
+    });
+  },
+
+  // 更新分类状态
+  updateStatus: (id: number, status: number) => {
+    return request("/api/category/updateStatus", {
+      method: "PUT",
+      body: JSON.stringify({ id, status }),
+    });
   },
 };
 
@@ -622,36 +658,5 @@ export const statisticsApi = {
       endTime: params.endTime,
     });
     return request(`/api/statistics/users/ranking?${searchParams.toString()}`);
-  },
-};
-
-// 扩展分类服务 API - 注意：monolith 中没有分类控制器，需要添加
-export const categoryApiExtended = {
-  // 获取分类详情
-  getDetail: (id: number) => {
-    return request(`/api/category/${id}`);
-  },
-
-  // 创建分类
-  create: (categoryData: any) => {
-    return request("/api/category/create", {
-      method: "POST",
-      body: JSON.stringify(categoryData),
-    });
-  },
-
-  // 更新分类
-  update: (categoryData: any) => {
-    return request("/api/category/update", {
-      method: "PUT",
-      body: JSON.stringify(categoryData),
-    });
-  },
-
-  // 删除分类
-  delete: (id: number) => {
-    return request(`/api/category/${id}`, {
-      method: "DELETE",
-    });
   },
 };

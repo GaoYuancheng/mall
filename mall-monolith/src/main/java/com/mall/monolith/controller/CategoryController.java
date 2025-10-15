@@ -1,6 +1,5 @@
 package com.mall.monolith.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.mall.common.api.CommonResult;
 import com.mall.monolith.model.Category;
 import com.mall.monolith.service.CategoryService;
@@ -9,6 +8,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Tag(name = "分类管理", description = "分类管理接口")
 @RestController
@@ -20,10 +21,9 @@ public class CategoryController {
 
     @Operation(summary = "获取分类列表")
     @GetMapping("/list")
-    public CommonResult<IPage<Category>> listCategories(@RequestParam(defaultValue = "1") Integer pageNum,
-                                                       @RequestParam(defaultValue = "10") Integer pageSize) {
-        IPage<Category> page = categoryService.listCategories(pageNum, pageSize);
-        return CommonResult.success(page);
+    public CommonResult<List<Category>> listCategories() {
+        List<Category> categoryList = categoryService.listCategories();
+        return CommonResult.success(categoryList);
     }
 
     @Operation(summary = "获取分类详情")

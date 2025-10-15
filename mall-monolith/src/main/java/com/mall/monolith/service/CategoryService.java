@@ -1,10 +1,11 @@
 package com.mall.monolith.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.mall.monolith.model.Category;
 
+import java.util.List;
+
 public interface CategoryService {
-    IPage<Category> listCategories(Integer pageNum, Integer pageSize);
+    List<Category> listCategories();
     Category getCategory(Long id);
     void createCategory(Category category);
     void updateCategory(Category category);

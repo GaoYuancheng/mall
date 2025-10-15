@@ -2,8 +2,9 @@ package com.mall.monolith.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.mall.common.api.CommonResult;
-import com.mall.monolith.model.Product;
 import com.mall.monolith.dto.ProductStatusUpdateRequest;
+import com.mall.monolith.dto.ProductVO;
+import com.mall.monolith.model.Product;
 import com.mall.monolith.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -39,19 +40,19 @@ public class ProductController {
         return CommonResult.success("删除成功");
     }
 
-    @Operation(summary = "获取商品详情")
+    @Operation(summary = "获取商品详情（包含分类名称）")
     @GetMapping("/{id}")
-    public CommonResult<Product> getProduct(@PathVariable Long id) {
-        Product product = productService.getProduct(id);
+    public CommonResult<ProductVO> getProduct(@PathVariable Long id) {
+        ProductVO product = productService.getProduct(id);
         return CommonResult.success(product);
     }
 
-    @Operation(summary = "分页查询商品")
+    @Operation(summary = "分页查询商品（包含分类名称）")
     @GetMapping("/list")
-    public CommonResult<IPage<Product>> listProducts(@RequestParam(defaultValue = "1") Integer pageNum,
-                                                    @RequestParam(defaultValue = "10") Integer pageSize,
-                                                    @RequestParam(required = false) String keyword) {
-        IPage<Product> productPage = productService.listProducts(pageNum, pageSize, keyword);
+    public CommonResult<IPage<ProductVO>> listProducts(@RequestParam(defaultValue = "1") Integer pageNum,
+                                                        @RequestParam(defaultValue = "10") Integer pageSize,
+                                                        @RequestParam(required = false) String keyword) {
+        IPage<ProductVO> productPage = productService.listProducts(pageNum, pageSize, keyword);
         return CommonResult.success(productPage);
     }
 

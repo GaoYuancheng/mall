@@ -14,7 +14,7 @@ import {
 } from "antd";
 import { PlusOutlined, UploadOutlined } from "@ant-design/icons";
 import styles from "./index.less";
-import { categoryApi, uploadApi } from "@/services/api";
+import { categoryApi, uploadApi } from "../../services/api";
 
 const { TextArea } = Input;
 
@@ -32,13 +32,14 @@ const Category: React.FC = () => {
   const fetchCategories = async () => {
     setLoading(true);
     try {
-      const data = await categoryApi.getList();
-      setCategories(data.data || []);
+      const res = await categoryApi.getList();
+      setCategories(res.data || []);
     } catch (error) {
       console.error("获取分类列表失败:", error);
-      message.error("获取分类列表失败");
+      // request 已统一处理错误提示，此处不重复提示
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const handleAdd = () => {
@@ -58,15 +59,16 @@ const Category: React.FC = () => {
       const values = await form.validateFields();
       if (editingId) {
         await categoryApi.update({ ...values, id: editingId });
+        message.success("更新成功");
       } else {
         await categoryApi.create(values);
+        message.success("创建成功");
       }
-      message.success(`${editingId ? "更新" : "创建"}成功`);
       setVisible(false);
       fetchCategories();
     } catch (error) {
       console.error("提交失败:", error);
-      message.error("提交失败");
+      // request 已统一处理错误提示，此处不重复提示
     }
   };
 
@@ -77,18 +79,18 @@ const Category: React.FC = () => {
       fetchCategories();
     } catch (error) {
       console.error("删除失败:", error);
-      message.error("删除失败");
+      // request 已统一处理错误提示，此处不重复提示
     }
   };
 
   const handleStatusChange = async (id: number, status: boolean) => {
     try {
       await categoryApi.updateStatus(id, status ? 1 : 0);
-      message.success("更新成功");
+      message.success("状态更新成功");
       fetchCategories();
     } catch (error) {
       console.error("更新状态失败:", error);
-      message.error("更新状态失败");
+      // request 已统一处理错误提示，此处不重复提示
     }
   };
 
